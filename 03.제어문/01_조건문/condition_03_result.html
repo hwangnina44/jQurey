@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>condition_03</title>
+</head>
+
+<body>
+	<h4>변수를 생성하고 비교할 값을 Kitty로 지정, 변수와 값이 일치한지를 조건문의 if ~ else를 이용하여, "You're not Kitty!"을 출력하세요.(else의 실행문이 출력되도록 하세요.)
+	</h4>
+
+	<script>
+		// if 문 출력 -> true, Hello Kitty!
+		// else 문 출력 -> false, You're not Kitty!
+
+		var name = "Kitty";
+		var userCat = "Munzi";
+
+		if (name == userCat) {
+			//조건식이 일치했을 때, true
+			document.write("Hello Kitty!");
+		} else {
+			//조건식이 일치하지 않았을 때, false
+			document.write("You're not Kitty!");
+		}
+
+		// 비교 연산자 !=, !== 를 사용하는 경우
+		if (name != userCat) {
+			//true, 두 개의 이름이 같지 않다!
+			document.write("You're not Kitty!");
+		} else {
+			//false, 두 개의 이름이 같다!
+			document.write("Hello Kitty!");
+		}
+
+	</script>
+
+</body>
+
+</html>

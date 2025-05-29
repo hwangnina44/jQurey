@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>09_부모선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /*
+        1.부모요소 선택자1 : 선택한 요소를 감싸고 있는 부모요소 선택
+        $('기준요소').parent();
+
+        2.부모요소 선택자2 : 선택한 요소를 기준으로 '모든' 상위요소를 선택하거나 상위요소 중 선택하고자 하는 요소만 선택
+        $('기준요소').parents();
+        $('기준요소').parents('선택요소'); : 상위요소중 누구!
+         */
+
+         $(document).ready(function(){
+
+            //parent()
+            $('#list1').parent().css({
+                border: '2px dashed blue',
+                backgroundColor : 'yellow'
+            });
+
+            //parents()
+            //$('.txt1').parents().css('border','3px solid red');
+            $('.txt2').parents('div').css('border','3px dotted red');
+         });
+    </script>
+</head>
+
+<body>
+    <!-- parent() -->
+    <h1>parent() 선택자</h1>
+    
+    <ul>
+        <li>
+            리스트1
+            <ul>
+                <li id="list1">리스트1-1</li>
+                <li>리스트1-2</li>
+            </ul>
+        </li>
+
+        <li>리스트 2</li>
+        <li>리스트 3</li>
+
+    </ul>
+
+    <!-- parents() -->
+    <h1>parents() 선택자</h1>
+    
+    <section>
+        <div>
+            <p class="txt1">내용1</p>
+        </div>
+    </section>
+
+    <div>
+        <div>
+            <p class="txt2">내용2</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>innerHTML</title>
+    <style>
+        #here {
+            font-size: 1.5rem;
+            color: red;
+            font-weight: bold;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <h4>"Hello world!"를 아래 p요소에 출력하세요.</h4>
+    <p id="here">text here!</p>
+    <script>
+        var msg;
+
+        msg = document.getElementById('here').innerHTML;
+        console.log(msg);
+
+        //새로운 속성값 설정
+        document.getElementById('here').innerHTML='hello World';
+
+        msg = document.getElementById('here').innerHTML;
+        console.log(msg);
+    </script>
+
+
+</body>
+
+</html>

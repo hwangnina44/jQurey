@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_for문_array</title>
+
+    <script>
+
+        //1. 배열 요소 출력 
+        var green = ["강남","역삼","종로","신촌","신도림","인천","부천","대전","부산"];
+
+        //document.write(green, "<br><br>");
+
+        /* 
+        document.write(green[0], "<br>");
+        document.write(green[1], "<br>");
+        document.write(green[2], "<br>");
+        document.write(green[3], "<br>");
+        document.write(green[4], "<br>");
+        document.write(green[5], "<br>");
+        document.write(green[6], "<br>"); */
+
+        console.log(green.length);
+
+
+        for (var i=0; i < green.length; i++) {
+            //변수 i는 반복횟수, 배열의 인덱스 번호로 사용!
+            document.write(green[i], "<br>");
+        }
+
+        //2. 배열 이미지 출력 
+        document.write("<h1>배열이미지 출력</h1>");
+
+        var imgSrc = ["1.jpg","2.jpg","3.jpg"];
+
+        var imgCount = imgSrc.length;
+        console.log("imgSrc 배열의 길이: " +imgCount);
+
+        for (var k=0; k < imgCount; k++) {
+            //document.write("<img src='images/1.jpg' alt=''>");
+            document.write("<img src='images/" + imgSrc[k] + "' alt=''>");
+        }
+
+
+
+
+    </script>
+
+    <style>
+        body {
+            margin-bottom: 300px;
+        }
+
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <img src="images/1.jpg" alt=""> -->
+</body>
+</html>

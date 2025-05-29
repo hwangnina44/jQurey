@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>07_그룹선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //li 또는 p 태그를 클릭하면 '클릭된 것만' 내용 변경, css  변경
+            $('li,p').click(function(){
+                $(this).text('야옹~').css({
+                    backgroundColor:'tomato',
+                    color:'#eee',
+                    fontWeight: 'bold',
+                    fontSize:'30px',
+                    transition:"all 0.6s"
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1>좋아하는 동물을 클릭해보세요.</h1>
+        <ul class="group1">
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+        </ul>
+
+        <ul class="group2">
+            <li>강아지 탈을 쓴 고양이</li>
+            <li>강아지 탈을 쓴 고양이</li>
+            <li>강아지 탈을 쓴 고양이</li>
+            <li>강아지 탈을 쓴 고양이</li>
+            <li>강아지 탈을 쓴 고양이</li>
+            <li>강아지 탈을 쓴 고양이</li>
+            <li>강아지 탈을 쓴 고양이</li>
+        </ul>
+
+        <div class="group3">
+            <p>팬더 무늬를 닮은 고양이</p>
+            <p>팬더 무늬를 닮은 고양이</p>
+            <p>팬더 무늬를 닮은 고양이</p>
+            <p>팬더 무늬를 닮은 고양이</p>
+            <p>팬더 무늬를 닮은 고양이</p>
+            <p>팬더 무늬를 닮은 고양이</p>
+            <p>팬더 무늬를 닮은 고양이</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03_example</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <!--  -->
+    <script src="jquery-ui-1.8.23.custom.min.js"></script>
+    <script>
+        /* 
+        **효과 메서드 : 소요시간 / 가속도/콜백함수
+        1.show() - display 상태를 none이 아닌것으로 변경(원래 값으로 !)
+
+        2.hide() -display 상태를 none으로 변경
+        
+        3.animate({
+            css설정
+        },소요시간(ms 1000에 1초 ),가속도,콜백함수)
+        - css 변경사항을 애니메이션 해주는 효과 메서드
+        - css 트랜지션을 넣은 것과 같은 효과 구현
+        - 수치로 된 속성값만 적용 가능
+        (여백,위치,너비,)
+        
+        4.delay()
+        :효과 메서드 앞에서 사용
+        :효과 메서드 시작을 지연시킬 때 사용
+        */
+
+
+        //예제 - 색상 버튼을 클릭하면 색상 정보가 표시되고 .img-box의 배경색이 클릭한 버튼의 색상으로 변경되도록 구현하시오.
+
+        /*  
+        1. 버튼을 클릭하면 텍스트 정보로 반환?
+         1-1.반환한 값을 변수에 담아서 넣음?
+         2. 반환한 값을 이미지 박스 css에 넣음? 
+         */
+        /* 
+        색상버튼을 클릭하면 >> 클릭대상은 : button, 이벤트 : click()
+
+        1)색상정보를 바꾸꼬 >> .select span/ text()
+        2) .img-box 의 배경색 변경! >>.img-box/ css()
+        
+        우리가 필요한 값?
+        >>내가 클릭한 버튼의 색상!!>> 내가 클릭한 버튼의 텍스필요!
+        >>버튼명 반환 ->text()
+        */
+
+        $(document).ready(function () {
+
+            $('button').click(function () {
+
+                var color = $(this).text();
+                console.log(color);
+                /*  
+                //1)색상정보 변경
+                //$(".select span").text(color).css('color',color);
+                $(".select").find('span').text(color).css('color', color);
+
+                //2) .img- box 배경색변경
+                $(".img-box").css({
+                    backgroundColor: color
+                });
+                 */
+
+                //색상정보 변경
+                //$('.select').hide(1000).text(color);
+                $('.select').hide(1000, function () {//콜백함수
+                    //alret('안녕!');
+                    $(this).find('span').text(color).css('color', color);
+                }).show(1000);
+
+
+                //img-box변경
+                $('.img-box').delay(2000).animate({
+                    backgroundColor: color
+                }, 800, function () {//콜백함수
+                    //이미지등장
+                    // $('.img-box').find('img').css('transform','scale(1)');
+                    $(this).find('img').css({
+                        transform: 'scale(1)',
+                        transition: 'all 1s'
+                    })
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <h1>무지개색 버튼을 클릭해 보세요!</h1>
+        <p class="select"><span>색상</span>을(를) 선택하셨습니다!</p>
+
+        <div class="btngrp">
+            <button>red</button>
+            <button>orange</button>
+            <button>yellow</button>
+            <button>green</button>
+            <button>blue</button>
+            <button>navy</button>
+            <button>purple</button>
+        </div>
+        <div class="img-box">
+            <img src="https://imagescdn.gettyimagesbank.com/500/202503/a14151188.jpg" alt="아기푸들">
+        </div>
+    </div>
+
+    <style>
+        p {
+            font-size: 24px;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        button {
+            font-size: 24px;
+        }
+
+        .btngrp {
+            margin-bottom: 20px;
+        }
+
+        .img-box {
+            width: 800px;
+            background-color: #000;
+            padding: 20px;
+        }
+
+        .img-box img {
+            width: 100%;
+            display: block;
+            transform: scale(0);
+        }
+    </style>
+</body>
+
+</html>

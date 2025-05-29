@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>1cutslide-1</title>
+
+    <script src="script/jquery-1.12.4.min.js"></script>
+    <script src="script/1cutslide-1_250516.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul, ol, li {
+            list-style: none;
+        }
+        a {
+            display: block;
+        }
+
+        /* body {
+            background-color: navy;
+        } */
+
+        .wrap {
+            width: 900px;
+            margin: 50px auto;
+            position: relative; /* .btn의 기준!!! */
+            
+        }
+
+        /* .slider : 실제 슬라이드가 보여지는 공간!!! */
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            /* outline: 3px solid red */;
+        }
+
+        /* .slider ul : 슬라이드 전체를 담는 부모 */
+        .slider ul {
+            width: 400%;
+        }
+        .slider ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* .slider ul li : 각 슬라이드 */
+        .slider ul li {
+            float: left;
+            width: 25%;
+        }
+        .slider ul li img {
+            display: block;
+            width: 100%;
+        }
+
+        /* 좌우 이동 버튼 */
+        .btn {
+            width: 50px;
+            /* height: 50px; */
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            /* outline: 2px solid lime; */
+        }
+
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+
+        .btn img {
+            width: 100%;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <!-- 
+        .slider : 실제 슬라이드가 보여질 영역!!!!
+        .slider ul : 슬라이드 전체를 담는 부모!!!!!
+        .slider ul li : 각각의 슬라이드!!!
+        -->
+
+        <div class="slider">
+            <ul>
+                <li><img src="images/slide-1.jpg" alt="슬라이드1"></li>
+                <li><img src="images/slide-2.jpg" alt="슬라이드2"></li>
+                <li><img src="images/slide-3.jpg" alt="슬라이드3"></li>
+                <li><img src="images/slide-4.jpg" alt="슬라이드4"></li>
+            </ul>
+        </div>
+
+        <div class="btn prev"><a href="#"><img src="images/arrow_left.png" alt="이전버튼"></a></div>
+        <div class="btn next"><a href="#"><img src="images/arrow_right.png" alt="다음버튼"></a></div>
+    </div>
+    
+</body>
+</html>

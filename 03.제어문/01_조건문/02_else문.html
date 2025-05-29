@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_else문</title>
+    <script>
+    /*
+    esle 문 :조건식을 만족할(true) 경우와 만족하지 않는 경우(false)에 따라 실행된는 코드가 달라짐,
+    즉 하나의 조건식 결과에 따라 두가지 실행코드를 사용할 수 있음.
+
+    /////////////////기본형/////////
+    if(조건식) {
+        실행코드;
+        } else {
+         살행코드;}
+    */
+
+    /* //기본예제
+
+    var userName=prompt('방문자에 이름을 입력해주세요');
+
+    if (userName) {
+        document.write(userName +'반갑습니다.');
+    } else {
+        alert('이름을 입력해주세요');
+    }
+
+    ///기본형 : 조건식? 실행문1 : 실행문 2;
+    ///기본형 : 조건식? true : false; */
+
+    //예제1. 입력받은 숫자가 짝수 일떄 if문, 홀수 일 때 else문 실행 
+       
+   /* 니나노
+    var num =  Number(prompt('좋아하는 숫자를 입력해주세요','0'));
+    var result = Number(num%2);
+
+    
+    if (result= 0) {
+        document.write('짝수입니다');
+    } else {
+        document.write('홀수입니다');
+    } */
+
+
+       
+    var num = (prompt('좋아하는 숫자를 입력해주세요','0'));
+    var numResult = Number(num);
+
+
+    if (numResult % 2 ===0 ) {
+        document.write('당신이 좋아하는 숫자는 짝수입니다.');
+    } else {
+        document.write('당신이 좋아하는 숫자는 홀수입니다!');
+    }
+ 
+
+
+    //예제2. 
+    //window.alert('테스트!');
+    //window.confirm('야옹!');
+    //confirm() -확인을 누르면 true, 취소를 누르면 false 반환
+
+   /*  var result= confirm('구독서비스를 해지하겠습니다?');
+    //확인 : true 취소 :false
+    console.log(result);
+    
+    if (result) {
+    //확인을 눌렀을때 실행, true
+        document.write('구독서비스가 해지되었습니다.');
+    } else {
+        document.write('구독서비를 유지합니다.');
+    } */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

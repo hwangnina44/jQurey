@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_evet</title>
+    <script>
+        /* 
+        이벤트란?
+        - 웹 브라우저 영역 안에서 일어나는 동작이나 사건
+        - 사용자가 화면에서 하는 모든 행위가 이벤트
+
+        이벤트 핸드러 란?
+        이벤트 발생 시, 실행 될 내용을 실행코드로 작성한 것
+
+        >>이벤트가 발생하면, 핸들러가 실행됨!
+        
+        자바스크립트 이벤트
+
+        *마우스 이벤트
+        1.click -클릭했을 때
+        2.dblclick - 더블 클릭했을 때
+        3.mouseover - 마우스 오버시 (이벤트 버블링 발생!)
+        4.mouseout - 마우스 아웃시 (이벤트 버블링 발생!)
+        5.mouseenter - 아무스가 요소에 들어갔을 때
+        6.mouseleave -  마우스가 요소에 나갔을때
+        7.mousemove - 마우스가 요소 안에서 움직일 때 
+        8.mousedown - 마우스 버튼이 눌러졌을 때
+        9.mouseup - 마우스 버튼이 눌러졌다가 올라올 때
+        10.mousewheel -  마우스 휠을 움직일 때
+        11.contextmenu - 마우스 오른쪽 버튼 클릭 시, context menu 열기
+        
+        *키보드 이벤트
+        1. keypress - 키보드가 눌러졌을 때 
+        2. keydowm - 키보드가 눌려서 내려갔을 때
+        3. keyup - 키보드가 눌렀다가 올라올 때
+        
+
+        *폼 태그 관련 이벤트 ( >> 사용자에게 입력을 받아야 함)
+        1.focus - 요소를 마우스로 클릭하여 커서가 발생했을 때
+        ex) input 태그의 입력란을 클릭하여 입력란에 커서가 있을 때!
+        2.blur - 요소가 마우스로 클릭되었다가(focus) 다른곳을 클릭하여 요서의 포커스가 벗어났을 때
+        ex) input 태그의 입력란에서 커사가 벗어났을 때!
+        3.change - select 요소, input 체크박스, 라디오버튼 등의 선택 상태가 변경될 때 발생
+        
+        **html 요소에서 이벤트를 속성으로 사용할 떄는 이벤트명 앞에 on을 붙여서 사용한다.
+        ex)click ->onclick / mouse->onmous
+
+        */
+        //함수만들기
+        function hello(){
+            alert('안녕하세요');
+        }
+        //이벤트 등록 메서드
+        //자바 스크립트 -> addEventListener('이벤트명',핸들러-function(){})
+
+        window.addEventListener('load',function(){
+            /* document.getElementById('box').addEventListener('click',function(){
+                hello();
+            }); */
+            document.getElementById('box').addEventListener('click',hello);
+        });
+    </script>
+</head>
+
+<body>
+   <!--  <div id="box" onclick="hello();">클릭하세요!!</div> -->
+    <div id="box">클릭하세요!!</div>
+    <style>
+        #box{
+            width: 200px;
+            height: 100px;
+            background-color: antiquewhite;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>condition_04</title>
+</head>
+
+<body>
+	<h4>prompt를 사용해 사용자가 입력한 나이가 25보다 클 경우 "슬기로운 사회생활 화이팅!"/ 아닐경우 "재미있는 학교생활 화이팅!"를 출력하세요.(if~else사용)</h4>
+
+	<script>
+
+		var age = Number(prompt('나이를 입력해 주세요!!!!!'));
+		var avg = 25; 
+
+		//입력된 나이가 25 초과할 때 
+		if (age > avg) {
+			//true, 입력받은 나이가 기준 나이를 초과!
+			document.write('슬기로운 사회생활 화이팅!');
+		} else {
+			//false, 입력받은 나이가 기준 나이보다 작다!
+			document.write('재미있는 학교생활 화이팅!');
+		}
+
+	</script>
+
+</body>
+
+</html>

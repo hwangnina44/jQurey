@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06_example_slide</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('h1').hover(function(){
+                $('.imgbox').slideDown(1000)
+            },function(){
+                $('.imgbox').slideUp(1000)
+            });
+        });
+
+
+        
+    </script>
+</head>
+    
+<body>
+
+    <h1>여기에 마우스를 올려보세요</h1>
+    <div class="imgbox">
+        <img src="image/suzy.jpg" alt="수지사진">
+    </div>
+
+    <style>
+        h1 {
+            width: 500px;
+            margin:50px auto;
+            background-color: lightpink;
+            text-align: center;
+            font-size: 24px;
+            padding: 20px 0;
+            cursor: pointer;
+        }
+
+        .imgbox {
+            width: 500px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_even_odd선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        홀수 - odd/ 짝수 -even
+S
+        even : 짝수 요소 선택
+        $('요소선택':even)
+        odd : 홀수 요소 선택
+        $('요소선택':odd)
+        *nth-child(odd|even)를 사용하면 우리가 아는 순서와 맞출 수 있다!
+        (03 css/01_css선탁자(selector)/07-위치선택자(배수).)
+        */
+       //document 객체. ready 메서드
+
+       $(document).ready(function(){
+        $('#menu li:even').css('background-color','red');
+        $('#menu li:odd').css('background-color','yellow');
+        $('#menu li:nth-child(even)').css('color','#fff');
+       });
+
+    </script>
+</head>
+<body>
+    <h1>even/odd 선택자</h1>
+    <ul id="menu">
+        <li>내용1(인덱스)</li>
+        <li>내용2(인덱스)</li>
+        <li>내용3(인덱스)</li>
+        <li>내용4(인덱스)</li>
+        <li>내용5(인덱스)</li>
+        <li>내용6(인덱스)</li>
+    </ul>
+</body>
+</html>

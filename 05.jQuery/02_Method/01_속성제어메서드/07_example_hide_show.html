@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>07_example_hide_show</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        hide(소요시간(ms),가속도easing,콜백함수)
+        - display : none ;으로 변경
+        show(소요시간(ms),가속도easing,콜백함수)
+        - display : none 이 아닌 상태(=원래 상태) 로 변경 
+        toggle(소요시간(ms),가속도easing,콜백함수)
+        - display 상태에 따라 show() hide()로 전환
+        */
+
+        $(function () {
+            //1)버튼을 클릭하면, 클릭된 버튼에따라 img 가 보여지거나, 사라진다!
+            //2)이미지가 사라졌다가 나타났을때에는 변경된 이미지가 보여진다!
+            // >> 이미지가 사지면 이미지에 경로를 변경!
+            // >> show 버튼을 클릭했을때, 변경된 이미지가 보여짐!
+
+
+            var iNum = 1;
+            $('#hide').click(function () {
+                $('.img-box img').hide(1000, function () {
+                    //$(this).attr('src','image/vogue2.jpg');
+
+                    iNum++;
+                    console.log(iNum);
+                    
+                    //변경된 최종 변수값 적용전
+                    if(iNum == 6) iNum = 1;
+
+                    $(this).attr({
+                        src: 'image/vogue' + iNum + '.jpg'
+                    });
+                });
+            }); //hide click()
+
+            $('#show').click(function () {
+                $('.img-box img').show(1000,function(){
+                    $('.no').text(iNum);
+                });
+                //$('.no').text(iNum);
+            });
+
+            $('#toggle').click(function(){
+                $(".img-box img").toggle(1000,function(){
+                    //.img-box img의 display 상태에 따라 콜백함수 실행!
+                    //여기서 나올수 있는 display 상태는?
+                    //none 이거나 none이 아니거나 
+                    //if else 문 사용!
+                    var status= $(this).css('display');
+                    console.log(status);
+                    if(status=='none'){
+                        iNum++;
+                        if(iNum == 6) iNum = 1;
+                        $(this).attr({src: 'image/vogue' + iNum + '.jpg'});
+                        //hide()콜백함수 실행
+                    }else{
+                        //show()콜백함수 실행
+                        $('.no').text(iNum);
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="btngrp">
+            <button id="hide">hide()</button>
+            <button id="show">show()</button>
+            <button id="toggle">toggle()</button>
+        </div>
+        <h2 class="title">VOGUE KOREA <span class="no">1</span></h2>
+
+        <div class="img-box">
+            <img src="image/vogue1.jpg" alt="김연아 보그 화보">
+        </div>
+    </div>
+    <style>
+        .container {
+            width: 560px;
+            margin: 0 auto;
+        }
+
+        .btngrp {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .btngrp button {
+            font-size: 24px;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .title span {
+            color: red;
+        }
+
+        .img-box {
+            outline: 1px solid red;
+            padding: 30px;
+        }
+
+        .img-box img {
+            width: 500px;
+            display: block;
+        }
+        /* 
+        img 태그의 크기는 px로 고정된 크기 설정할것!
+        %로 넣었을 때 너비가 일단 100%채워지고 높이가 조절되어 이미지 비율이 꺠졌다가 원상복귀됨
+        */
+    </style>
+</body>
+
+</html>

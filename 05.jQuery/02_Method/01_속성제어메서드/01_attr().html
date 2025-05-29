@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01_attr()</title>
+
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        1.속성제어 메서드 : 요소의 속성을 바꿀 떄 사용
+        2.객체편집 메서드 : 객체를 생성하고 삭제 또는 복제
+        3.수치제어 메서드 : 요소의 너비값 또는 노ㅠ이값 반환 및 수치를 바꿀때 사용
+        */
+        /* 
+        attr 
+        >>선택한 요소에 새 속성을 생성하거나 기존의 속성을 변경
+        >>요소의 속성값을 불러올 떄 (반환) 사용
+        
+        *속성
+        property :대상의 정보
+        attribute:태그의 속성
+ 
+        *기본형
+        1.$('요소선택').attr('속성명');
+         >>선택한 요소의 지정한 속성값 가져오기(값 반환)
+        2.$('요소선택').attr('속성명','속성값');
+         >>
+        3.$('요소선택').attr({
+                 속성명1 : '값' 
+                 속성명2 : '값' 
+        });
+        >>선택한 요소에 속성값 적용
+        >>css.메서드랑 사용법이 동일
+        */
+
+        $(document).ready(function () {
+
+            //속성값 반환 //변수에 담지 않고 바로 console에 기록할수 있다.
+            console.log($('img').attr('src'));
+            console.log($('img').attr('title'));
+
+            //속성값 변경
+            //clik >> 이벤트 메서드 >>핸들러는 함수를 사용
+            $('button').click(function(){
+
+                //단일속성변경
+                //$('img').attr('width','900'); //%를 넣은경우 단위를 넣을것.
+
+                //여러가지 속성 변경
+                $('img').attr({
+                    src : 'image/mountain.jpg',
+                    alt : 'mountain',
+                    title : '푸르른 산~'
+                });
+                console.log($('img').attr('alt'));
+            });
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <img src="image/sea.jpg" alt="trock" width="500" title="시원한 바다">
+    <br>
+    <button>이미지태그 속성변경</button>
+</body>
+
+</html>

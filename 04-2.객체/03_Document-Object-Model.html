@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_Document-Object-Model</title>
+
+    <script>
+        /*
+        3. 문서 객체 모델 (DOM : Document Object Model)
+        - 로딩된 html 문서는 트리구조 형태로 html 요소의 부모 자식 관계를 파악하여 객체 접근 모델링 제공
+        - 자바스크립트 body에 구성된 태그요소를 어떻게 선택하고 어떻게 수정하는지 확인
+        - document 객체는 현재 html의 모든 구성요소 접근법 및 변경법을 담고 있는 객체
+        
+        */
+
+        /*
+        1) DOM의 각 요소 선택(접근) 방법
+
+        (1) 아이디 요소로 접근하기
+        - document.getElementById("아이디명")
+        
+        (2) 클래스 요소로 접근하기
+        - document.getElementsByClassName("클래스명")
+        - 클래스는 다중사용이 가능하므로 elements라는 복수형 이름을 사용
+        - 여러 개의 요소를 집합으로 사용하므로 item() 메서드를 사용
+        ex) document.getElementsByClassName("box").item(2)
+        : item(번호)는 0부터 시작
+
+        ex) document.getElementsByClassName("box")[index]
+        
+
+        (3) 태그 요소로 접근하기
+        - document.getElementsByTagName("태그명")[]
+        - 태그 요소 역시 다중 사용이 가능하므로 item() 메서드 사용 가능
+
+        (4) CSS의 선택자 코드로 접근하기
+        - CSS 선택자 문법을 그대로 사용하여 자바스크립트 내장 객체에 질의(Query)를 보내서 결과를 얻는 것
+
+        - document.querySelector(css선택자)
+        - 선택요소가 다수의 집합 요소라 해도 '처음 하나만' 리턴하여 가져옴
+        - 즉, length, item() 사용불가
+        - ex) document.querySelector("#nav>ul>li")
+          >> 처음 만나는 li 하나만 가져옴(반환)
+
+        - document.querySelectorAll(css선택자)
+        - 질의한 결과를 '집합'으로 가져옴
+        - length, item() 사용가능
+        - ex) document.querySelectorAll("#nav>ul>li").item(3)  
+
+
+        2) DOM의 각 요소 변경 방법
+
+        (1) 선택요소 내부의 html 변경하기 : innerHTML (속성)
+            선택요소.innerHTML;
+            선택요소.innerHTMl = 변경할 코드;
+
+            ex) document.getElementById('box').innerHTML = '<p>박스</p>';
+
+        (2) 선택요소 내부의 속성값 변경하기
+            선택요소.속성명 = 값;
+            
+            ex) document.getElementById('box').src = 'images/1.jpg';
+
+        (3) 선택요소 내부의 속성을 setAttribute() 메서드로 변경하기    
+            setAttribute("속성명","속성값")
+
+            ex) document.getElementById('box').setAttribute('src','images/1.jpg');
+
+            * 속성값을 가져오는 메서드 : getAttribute("속성명")
+
+        (4) 선택요소의 스타일 변경하기
+            선택요소.style.스타일속성명 = 값;
+            
+            ex) document.getElementById('box').style.backgroundColor = 'red';
+
+            **자바스크립트의 스타일 속성명 작성 규칙
+            1) JS는 스타일 속성에 특수기호 '-'을 식별자에 사용할 수 없음
+            2) '-'으로 연결된 속성은 다음 단어의 첫 글자를 대문자로 변경하고 하이픈 삭제
+
+        */
+
+        /*
+        3) DOM으로 선택한 요소에 이벤트 적용하기
+
+        Q. 이벤트란?
+        A. JS에서 특별한 일이 일어나면 이에 반응해 자동으로 실행되도록 설정해 둔 것 
+
+        Q. 이벤트 핸들러란?
+        A. 이벤트 발생 시, 행해져야 할 내용을 자바스크립트(실행코드)로 적어두는 것
+
+        (1) 선택요소.on이벤트명 = function(){
+                실행코드;
+        };
+        
+        (2) 선택요소.addEventListener("이벤트명",함수);
+
+        ex) window.addEventListener("load", function (){
+                실행코드;
+        });
+
+        (3) window.onload();
+        - onload는 브라우저가 웹페이지의 로딩을 끝냈을 때 일어남
+        - 즉, 페이지의 모든 요소들이 로드된 이후에 호출!
+        - document.write(); 은 자동적으로 onload 이벤트를 발생 시킨다!
+
+
+        4) 이벤트 종류
+        * 마우스 관련 이벤트
+        1. click - 클릭 했을 때
+        2. dblclick - 더블클릭했을 때
+        3. contextmenu - 마우스 오른쪽 버튼 클릭 시 contextmenu 열기
+        4. mouseover - 마우스 오버시
+        5. mouseout - 마우스 아웃시
+        6. mouseenter - 요소 경계선 안으로 들어왔을 때
+        7. mouseleave - 요소 경계선 밖으로 나갔을 때
+        8. mousemove - 마우스포인터가 요소 안에서 움직일 때 
+        9. mousedown - 마우스 버튼이 눌려졌을 때
+        10. mouseup - 마우스 버튼이 눌렸다가 올라올 때
+
+        * 키보드 관련 이벤트
+        1. keypress - 키보드가 눌려졌을 때
+        2. keydown - 키보드가 눌려서 내려갔을 때
+        3. keyup - 키보드가 눌렸다가 올라올 때
+
+        * 기타 이벤트 
+        1. blur - 요소가 마우스로 클릭되었다가 다른 곳을 클릭할 때
+        2. focus - 요소를 마우스로 클릭하여 초점이 올 때 
+        3. change - select 요소, input의 체크박스, 라디오 버튼 등의 선택상태가 변경될 때 발생
+
+        ** html에서 이벤트를 속성으로 사용할 때는 이벤트명 앞에 on을 붙여서 사용
+        ex) click -> onclick / mouseover -> onmouseover
+
+        */
+
+
+    </script>
+</head>
+<body>
+
+    <h1>자바스크립트 이벤트</h1>
+    <p id="show">날짜를 알려줄까 말까</p>
+
+    <!-- <button onclick="alert('안 알려줘~~~~~~');">지금 몇 시지?</button> -->
+    <button onclick="document.getElementById('show').innerHTML=Date();">지금 몇 시지?</button>
+
+    <button id="btn1">클릭해 봐~</button>
+    <button id="btn2">오늘 덥지?</button>
+
+    <script>
+
+        //이벤트 예제1 - 선택요소.on이벤트명 = 실행코드;
+        document.getElementById('btn1').onclick = function(){
+            alert('야오오오오오옹오옹!!!!');
+        };
+
+        //이벤트 예제2 - 선택요소.addEventListener("이벤트명",실행코드);
+
+        document.getElementById('btn2').addEventListener('click',function(){
+            alert('시원한 커피를 마셔보렴~~~~~~');
+        });
+
+
+    </script>
+    
+</body>
+</html>

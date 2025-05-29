@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        /* 
+        중첨 for문- for문 안에 for 문을 사용하는것
+         
+        //////////기본형/////////////////
+        for (초기값,조건식,증감식) { //바깥 for문
+            
+            for (초기값,조건식,증감식) {}    //안쪽 for문
+            실행코드
+        }
+
+        //////////////////////////////////
+        */
+
+
+       //예제 1행 1열부터 3행 4열까지 출력하시오.
+
+
+       //1행 2 행 3행 바깥포문 은 행
+       //1열 2열 3열 4열 안쪽 포문은 열?
+
+/*        for (var i = 1; i<=3; i++) {
+        document.write(i+"행");
+            for(var e = 1; e<=4;e++) {
+            document.write(i + "열<br>");
+        }
+       } */
+/* 
+       for (var i = 1; i<=3; i++) {
+
+            for(var e = 1; e<=4;e++) {
+            document.write(i+"행" +e+ "열<br>");//여기서 돌다가 false 가 되면 밖으로 나감
+        }
+            document.write("<br>")
+       } */
+        //예제 2 -구구단 출력 2단에서 9단까지 모두 출력
+
+        /* for (var i=2; i<=9; i++) {
+            document.write('<h1>'+i
+                +'단'+'</h1>');
+            for (var k=1; k<=9; k++){
+                document.write(i + 'x' + k +'='+i*k+ '<br>');
+            }
+            document.write('<br>');
+        }
+ */
+        /* 
+        단수 반복 >> j
+        곱해지는 값의 반복 >> a
+        구구단을 담을 변수 >> gugu
+        */
+
+        var gugu = '';
+
+        for(var j=2; j<=9; j++){ //단수를 올리기위한 반복(2단~9단)
+            gugu+='<h2>'+j+'단</h2>'
+
+            for (var a=1; a<=9; a++) {//곱해지는 값을 위한 반복
+                gugu+=j+'x'+ a +'='+(j*a)+ '<br>';
+            }
+            gugu+="<br>";
+            }
+        document.write(gugu);
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

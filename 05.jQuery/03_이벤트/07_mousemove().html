@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>07_mousemove()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        mousemove() : 선택한 요소 안에서 마우스가 움직였을 때 이벤트 발생
+        $('이벤트 대상').mousemove(function(매개변수=이벤트객체){
+            매개변수(이벤트객체).속성;
+        });
+        - 이벤트가 발생하면 이벤트 핸들러의 매겨변수 자리에 이벤트 객체가 자동으로 생성
+        - 생성된 이벤트 객체에 이벤트 타입에 맞는 다양한 정보를 제공하는 속성과 메서드를 사용할 수 있다!
+        */
+
+        $(document).ready(function(){
+            $(document).on('mousemove',function(event){
+                //console.log('마우스가 움직입니다~');
+                
+                //마우스이 위치값을 반환받을 변수
+                var posX = event.pageX;
+                console.log(posX);
+                $('.posX').text(posX);
+                $('.posY').text(event.pageY);
+            });
+        });
+        /* 
+        우리가 사용한 속성
+        event.pageX : 스크롤 x축의 이동거리를 계산하여 마우스포인터의 x죄표값 반환
+        event.pageY : 스크롤 y축의 이동거리를 계산하여 마우스포인터의 Y죄표값 반환
+        event = 이벤트 객체! 이벤트 핸들러의 매개변수 있는 값!
+        */
+    </script>
+</head>
+<body>
+    <h1>mouse move()</h1>
+    <p>X : <span class="posX"></span></p>
+    <p>p : <span class="posY"></span></p>
+</body>
+</html>

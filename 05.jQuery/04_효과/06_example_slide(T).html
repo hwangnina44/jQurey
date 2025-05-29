@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>06_example_slide(T)</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+             /* 
+            .title에 마우스를 올리면(mouseover/mouseenter) 이미지가 아래로 펼쳐지고
+            .title에서 마우스가 벗어나면(mouseout/mouseleave) 이미지가 위로 접히도록 구현하시오.
+            */
+
+        $(function(){
+            //구현을 위한 초기 설정
+            $('.img-box').hide();
+            $('.title').on({
+                'mouseover' : function(){
+                    console.log(' 슬라이드 다운');
+                    $('.img-box').slideDown(1000);
+                },
+                'mouseout' : function(){
+                    console.log('끝');
+                    $('.img-box').stop().slideUp(1000);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">여기에 마우스를 올려보세요!</h2>
+        <div class="img-box">
+            <img src="image/suzy.jpg" alt="상큼한 여름 수지">
+        </div>
+    </div>
+
+    <style>
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        h2.title {
+            background-color: lightcoral;
+            color: aliceblue;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .img-box {
+            outline: 3px solid tomato;
+        }
+        .img-box img {
+            width: 500px;
+            display: block;
+        }
+
+    </style>
+</body>
+</html>

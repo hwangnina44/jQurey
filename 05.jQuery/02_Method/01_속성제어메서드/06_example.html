@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>06_example.class()</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        //클릭된 탭메뉴(li)에 활성화된 디자인을 적용>>active추가!
+        //나머지 디자인은 기본 디자인>>나머지 메뉴는 .active제거!
+
+        $(document).ready(function(){
+
+          /*  $('li').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+            }); */
+
+            //만약에 클릭한 대상이 a태그라면?
+            $('.gnb li a').click(function(){
+                $(this).parent().addClass('active').siblings().removeClass('active');
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="top">
+        <h1>그린컴퓨터 아카데미</h1>
+        <nav class="gnb">
+            <ul >
+                <li class="active"><a href="#">강남점</a></li>
+                <li><a href="#">역삼점</a></li>
+                <li><a href="#">종로점</a></li>
+                <li><a href="#">신촌점</a></li>              
+                <li><a href="#">신도림점</a></li>
+                <li><a href="#">노원점</a></li>
+            </ul>
+        </nav>
+    </div>
+    <style>
+        ul,ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+        }
+        nav.gnb ul {
+            text-align: center;
+        }
+        .top {
+            text-align: center;
+            margin: 50px 0;
+        }
+        nav.gnb ul li {
+            border: 1px solid #ccc;
+            display: inline-block;
+            border-radius: 50px;
+        }
+        nav.gnb ul li~li {
+            margin-left: 10px;
+        }
+
+        nav.gnb ul li a {
+            padding: 10px 20px;
+            font-size: 20px;
+            color: #777;
+        }
+
+        /* 선택된 메뉴에 적영될 디자인! */
+        nav.gnb ul li.active{
+            background-color: #41b3a2;
+            border-color: #41b3a2;          
+        }
+        nav.gnb ul li.active a {
+            color: #fff;
+        }
+
+    </style>
+</body>
+</html>

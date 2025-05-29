@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_eq선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        eq선택자 : 선택한 요소 중 지정한 인덱스의 요소만 선택
+        $('요소선택:eq(index)')
+        $('요소선택').eq(index)
+        */
+
+        $(function (){
+            $('#menu li:eq(2)').css({
+                backgroundColor :'tomato'
+            });
+            $('#menu li').eq(3).css({
+                backgroundColor: 'skyblue'
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>eq 선택자</h1>
+    <ul id="menu">
+        <li>내용1(인덱스 0)</li>
+        <li>내용2(인덱스 1)</li>
+        <li>내용3(인덱스 2)</li>
+        <li>내용4(인덱스 3)</li>
+        <li>내용5(인덱스 4)</li>
+        <li>내용6(인덱스 5)</li>
+    </ul>
+</body>
+</html>

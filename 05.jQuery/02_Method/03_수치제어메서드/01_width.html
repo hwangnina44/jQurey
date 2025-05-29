@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>width</title>
+   <!--  <script src="jquery-1.7.2.min.js"></script> -->
+     <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        //innerWidth(),outerWidth(),innerHeight(),outerHeight()
+        >>제이쿼리 라이브러리 버전의 영향을 받는다.
+        1) width() : 요소가 가진 컨텐츠의 너비값을 반환하거나 변환
+        >>padding/border 을 제외한 컨텐츠 너비 값
+        2)innerwhidth : 안쪽 여백을 포함한 너빗값을 반환하거나 변환
+        >>padding까지
+        3)outerwhidth : 안쪽 여백과 선을 포함한 너비값을 반환하거나 변환
+        >>border까지
+
+        *기본형
+        1) 값의 반환 $('요소선택').width()|innerWidth()|outterWidth();
+        2) 값의 변환(설정) $('요소선택').width(값) |innerWidth(값)|outterWidth(값);
+        */
+       $(document).ready(function(){
+
+        $('#width').click(function(){
+            var result= $('.box').width();
+            console.log(result);
+            $('.box').width(450);
+        });
+
+        $('#inner').click(function(){
+            console.log($('.box').innerWidth());
+
+            $('.box').innerWidth(200);
+        });
+
+            $('#outer').click(
+                function(){
+                    console.log($('.box').outerWidth());
+                    //$('.box').outerWidth(200);
+                    //padding과 border값은 그대로, width값 변경!
+                    console.log($('.box').outerWidth(true));
+                    //메서드안에 괄호를 비어서 쓰면 기본값은 'false'
+                    //outterWidth() 빈 칸이거나 false일 경우, margin을 제외한 총 너비를 구함!
+                    //outterWidth(true)일 경우, margin을 포함한 너비값을 구한다! 
+                });
+       });
+
+    </script>
+</head>
+
+<body>
+
+    <h1>width(),innerWidth(),outerWidth();</h1>
+    
+    <div class="box">
+    </div>
+    <button id="width">width()</button>
+    <button id="inner">innerwidth</button>
+    <button id="outer">outerwidth</button>
+    <style>
+        .box{
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid red;
+            margin: 3px;
+            background-color: green;
+        }
+    </style>
+</body>
+
+</html>

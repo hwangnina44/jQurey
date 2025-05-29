@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04_position()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        position() : 포지션 요소를 기준으로 선택한 요소의 가로/세로로 떨어진 위치의 좌표값을 반환하거나 변경
+
+        $('선택요소').position().left;
+        $('선택요소').position().top;
+
+
+        */
+
+        $(function(){
+            $('#btn1').click(function(){
+                var result = $('#p1').position().left;
+                console.log('position().left :'+result);//0
+
+                result=$('#p1').offset().left;
+                console.log('offrst.left:'+result);
+            });
+            $('#btn2').click(function(){
+                console.log($('#p2').position().left);
+                console.log($('#p2').position().top);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn1">#p1 positon</button>
+    <button id="btn2">#p2 positon</button>
+    <p id="p1">This is a paragragh</p>
+
+    <div id="parent">
+        <p id="p2">This is a paragragh</p>
+    </div>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            margin: 20px 10px 10px 20px;
+            padding: 5px 10px;
+            font-size: 24px;
+           
+        }
+
+        p{
+            font-size: 30px;
+            background-color: aquamarine;
+        }
+        #p1 {
+            margin-left: 200px;
+            /* position: relative;
+            left:200px; */
+
+        }
+        #parent {
+            width: 350px;
+            height: 100px;
+            border: 1px solid red;
+            position: relative;
+            left: 20px;
+            top: 10px;
+        }
+
+        #p2 {
+            position: absolute;
+            left: 10px;
+            top: 20px
+        }
+
+    </style>
+</body>
+
+</html>

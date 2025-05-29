@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>형제선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        형제 요소 선택자: 선택한 요소의 '모든'형제 요소 선택
+
+        기본형: $('기준요소').siblings()
+        -기준요소를 제외한 나머지 형제 요소 선택
+
+        */
+
+        $(function(){
+            var style1 = {
+                backgroundColor:'yellow',
+                border : '2px solid #f00'
+            };
+
+            //$(".txt").siblings().css(style1);
+            //$('.txt').css('color','red').siblings().css(style1);
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>형제요소선택자</h1>
+        
+        <p>내용1</p>
+        <p class="txt">내용2</p>
+        <p>내용3</p>
+        <p>내용4</p>
+    </div>
+</body>
+</html>

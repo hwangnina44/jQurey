@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>01_function</title>
+
+    <script>
+
+        /* 
+        함수란?
+
+        - 실행코드의 집합 또는 묶음
+        - 특정 실행코드를 담고 있는 메모리 공간!
+        - 반복적으로 사용할 실행코드를 함수로 만들어서 주로 사용!
+        - 변수는 데이터만 저장, 실행코드는 저장 불가,
+        - 함수를 사용할려면 코드를 메모리에 저장했다가 필요할 떄마다 호출하여 사용
+        - 함수는 호출 시에 실행되며 주로 이벤트와 연결되어 사용
+        (이벤트) 클릭,마우스오버,피그마와 동일
+
+        -변수는 var
+        -함수는 function이라는 키워드를 이용해서 선언!
+
+        *함수 정의문 - 함수를 사용하여 실행코드를 저장(즉, 함수를 만드는것)
+        *함수 호출문 - 함수를 호출!!!
+        
+        */
+        
+        /*
+        1.이름(함수명) 있는 함수 = 선언적 함수 = 일반 함수
+        /////기본형- 함수 정의문!////////////////////////
+        function 함수명 (값을 전달할 공간) {
+            실행코드;
+        } 
+        ////////////////함수 호출///////////////////////
+        함수명 ();
+        */
+
+      /*
+        //함수 변수명  
+        nayana();
+       
+       //함수 정의문
+       function nayana () {
+                alert('나야나!');
+       } 
+      */
+       //함수 변수명
+       // nayana();
+
+
+       /* 
+       일반 함수 정의는 함수 호출시 호이스팅(hoisting) 기술을 지원 호이스팅을 적용하면 함수 정의문보다 함수 호출문이 먼저 나와도 함수 정의문을 '끌어올려' 함수를 호출!*/
+
+       /* 
+       2. 이름(함수명) 없는 함수 = 익명 함수
+       /////////기본형//////////////////////
+        var 참조변수명 = function() {
+            실행코드;//(함수정의문)
+        };
+        잠조변수명();
+        (함수의 배열덩어리를 변수에 넣어서 사용 )
+        (그래서 호출에 순서 영향을 받음)
+        (**익명함수는 함수 정의문보다 함수 호출문이 먼저 나올 경우 함수가 실행되지 않는다)
+       */
+       //greeting(); >>익명함수 , 정의문보다 먼저 호출되었으므로 실행안됨! >>Type error
+       
+       
+       var greeting = function(){
+         document.write('안녕');
+       };
+       
+       greeting();
+
+       //예제 1) 버튼을 클릭할떄 마다 인사말이 출력
+
+       var count= 0;
+       function hello (){
+        count++;
+        //document.write("안녕하세요!<br>")
+        document.getElementById('here').innerHTML += 'hello'+count+"<br>";
+       }
+
+       //예제 2) 문서에 배경색 바꾸기 버튼을 누를때 마다 
+
+       var color= ['pink','yellow','skyblue','orange','mistyrose','green','violet','plum'];
+       
+       var idx= 0;//인덱스 변수 ,color[idx]
+
+       function changeColor () {
+            /* if(idx >= 8){
+                idx=0;
+            } */
+
+            if(color.length<=idx) idx=0;
+            document.getElementById('body').style.backgroundColor =color[idx];
+            idx++;
+
+            console.log(idx);
+       };
+
+
+
+    </script>
+</head>
+
+<body id="body">
+    <button onclick="hello();">눌러봐!!!</button>
+    <p id="here" style="color:red;"></p>
+
+    <button onclick="changeColor();"> 배경색 바꾸기</button>
+    
+
+    <P class="txt">내용1</P>
+    <P class="txt">내용2</P>
+
+    <script>
+        var element = document.getElementsByTagName('p');
+        console.log(element);
+        element[2].style.color='red';
+    </script>
+</body>
+
+</html>

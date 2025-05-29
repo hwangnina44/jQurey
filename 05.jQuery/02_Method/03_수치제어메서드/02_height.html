@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        
+        1) height() :요소가 가진 컨텐츠의 높이값을 반환하거나 변환
+        >>안쪽 여백과 선을 제외한 컨텐프 높이 값
+        1) innerHeight() : 안쪽 여백padding을 포함한 높이값을 반환하거나 변환
+        1) outerHeight() : 안쪽 여백 padding과 선(border)을 포함한 높이값을 반환하거나 변환
+        
+        *기본형
+        1) $('요소선택').height()| innerHeight()|outerHeight();>>값으 반환
+        1) $('요소선택').height(값)| innerHeight(값)|outerHeight(값);>>값으 변환
+        
+        */
+       $(function(){
+        $('#height').click(function(){
+            console.log($('.box').height());
+
+            $('.box').height(300);
+        });
+
+        $('#inner').click(function(){
+            console.log($('.box').innerHeight());
+
+            $('.box').innerHeight(200);
+        });
+        $('#outer').click(function(){
+            console.log($('.box').outerHeight());//122
+
+            $('.box').outerHeight(200);
+
+            console.log($('.box').outerHeight(true));//206
+        });
+
+       });
+    </script>
+</head>
+
+<body>
+    <h1>height(),innerheight(),outerheight();</h1>
+
+    <div class="box">
+    </div>
+    <button id="height">height()</button>
+    <button id="inner">innerheight</button>
+    <button id="outer">outerheight</button>
+    <style>
+        .box {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid red;
+            margin: 3px;
+            background-color: green;
+        }
+    </style>
+</body>
+</html>

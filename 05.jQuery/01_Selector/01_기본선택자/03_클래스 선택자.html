@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_클래스 선택자</title>
+
+    <script src="jquery-1.7.2.min.js"></script>
+
+    <script>
+        /* 
+        text() 메서드
+        1) $(선택자).text();
+        - 선택한 요소의 텍스트 반환!
+
+        2)$(선택자).text('내용!');
+        - 선택한 요소의 텍스트 변경!
+
+        */
+
+        $(document).ready(function(){
+            var title = $('.title').text();
+            console.log(title);
+
+            $('.title').css('background-color','green');
+
+            $('.list li').click(function(){ //.list li를 클릭하면
+                 //$('.list li').text('여름이닷~!');
+
+                //변경대상 : .list li 중에 내가 클릭한 li !!!
+                //this >> 클릭당한 li !
+                $(this).text('여름이닷!').css({
+                    fontSize: '40px',
+                    color:'red',
+                    fontWeight:'bold',
+                    transition : 'all 0.5s'
+                });
+                
+            }); 
+        });
+
+    </script>
+</head>
+<body>
+
+    <h1 class="title">한국에 4계절</h1>
+
+    <ul class="list">
+        <li id="spring">봄</li>
+        <li id="summer">여름</li>
+        <li id="fall">가을</li>
+        <li id="winter">겨울</li>
+    </ul>
+
+</body>
+</html>

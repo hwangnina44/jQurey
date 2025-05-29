@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //box1 box2 box3 이동거리 구하기
+            //이동거리 - 문서로부터 떨어진 거리!
+            var box1pos=$('#box1').offset().top;
+            var box2pos=$('#box2').offset().top;
+            var box3pos=$('#box3').offset().top;
+            console.log(box1pos+'\n'+box2pos+'\n'+box3pos);
+           
+            $('#btn1').click(function(){
+                $('html,body').animate({
+                    scrollTop : box1pos
+                },800);
+            });
+
+            $('#btn2').click (function(){
+                $(window).scrollTop(box2pos);
+               
+                $('html,body').animate({
+                    scrollTop : box2pos
+                },800);
+            });
+
+            $('#btn3').click(function(){
+                $('html,body').animate({
+                    scrollTop:box3pos
+                },800);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="btngrp">
+        <button id="btn1">페이지1</button>
+        <button id="btn2">페이지2</button>
+        <button id="btn3">페이지3</button>
+    </div>
+
+    <div id="box1" class="page">페이지1</div>
+    <div id="box2" class="page">페이지2</div>
+    <div id="box3" class="page">페이지3</div>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 보이는 화면 기준 */
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btngrp {
+            position: fixed;
+            left: 50%;
+            top: 100px;
+            transform: translateX(-50%);
+        }
+
+        .btngrp button{
+            font-size: 20px;
+            margin: 0 6px;
+        }
+
+        .page{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 100px;
+            font-size: 2rem;
+        }
+
+        #box1{background-color: lightsalmon;}
+        #box2{background-color: lightgoldenrodyellow;}
+        #box3{background-color: lightblue;}
+    </style>
+</body>
+</html>

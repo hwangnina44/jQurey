@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_hidden_visible선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        :hidden 선택자 - display :none ;인 요소를 찾음
+        $('요소선택:hidden')
+        :visible 선택자 - display :none;이 아닌 요소를 찾음
+        $('요소선택:visible')
+        */
+
+        $(function(){
+
+            //숨겨진 li를 보이게 하기 >>show 메서드 
+            // $('li:hidden').show();
+            //보여지는 li를 숨기기 >> hide ()메서드
+            //$$('li:visible').hide();
+            
+            var count = $('li:hidden').length;
+            console.log(count);
+
+        });
+    </script>
+</head>
+<body>
+    <h1>그린컴퓨터 아카데미</h1>
+    <h2>서울</h2>
+    <ul class="local1">
+        <li class="hide">강남</li>
+        <li class="hide">역삼</li>
+        <li>종로</li>
+        <li>신촌</li>
+        <li>신도림</li>
+    </ul>
+
+    <h2>인천/경기</h2>
+    <ul class="local2">
+        <li>인천</li>
+        <li>부천</li>
+        <li>일산</li>
+    </ul>
+
+    <h2>지방</h2>
+    <ul class="local3">
+        <li class="hide">대전</li>
+        <li>대구</li>
+        <li>부산</li>
+    </ul>
+    <style>
+        ul {
+            outline: 2px solid plum;
+        }
+
+        .hide {
+            display: none; 
+            /* visibility: hidden;
+            opacity: 0; */
+        }
+    </style>
+</body>
+</html>

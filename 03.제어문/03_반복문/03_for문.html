@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>03_for문</title>
+    <script>
+        /* 
+        (3) for 문 : 조건식을 만족할때까지 코드를 반복하여 실행
+
+        ///기본형
+
+        for (조기값; 조건식; 증감식){
+        실행코드;
+        }
+        
+        *실행순서
+        (변수의)초기값 ->조건식 ->코드실행->증감식->조건식->코드실행-> 증감식->조건식->코드실행
+        */
+        //기본예제 - for 문으로 1~10Rkwl 1씩 증가하며 화면에 출력
+
+        //while문 사용
+        var i = 1;
+        while (i <= 10) {
+            document.write(i, "<br>");
+            i++;
+        }
+        //for문
+        for (var i = 1; i <= 10; i++) {
+            document.write(i, "<br>");
+        }
+
+
+        document.write('<hr>');
+
+        //예제.1~100까지 숫자 중 5의 배수일경우 빨간색, 7의 배수일 경우 파란색,
+        //5의 배수이면서 7의 배수인 경우 핑그랙으로 출력하시오.
+
+        /* 
+        니나
+        var n = 1;
+        범위 설정 값<100
+        1.5의 배수 -> 5로 나늘때 0 (n%5===0)
+        2.7의 배수 -> 7로 나눌때 0 (n%5===0)
+        3.5의 배수이면 7의 배수
+        */
+
+        /*  var e= 1;
+        
+        for(e<100; e%5==0; e++ ) {
+            document.write(e,"<br>")
+        }  */
+
+        /* 
+        사용할 값(k) ->1~100 /반복 횟수 100번(1~100)
+
+        1.5의 배수 -> 5로 나늘때 0 (k%5===0)
+        2.7의 배수 -> 7로 나눌때 0 (k%7===0)
+        3.5의 배수이면 7의 배수 k%5===0 &&(k%5===0)
+        */
+
+        for (var k = 1; k <= 100; k++) {
+            if (k % 7 === 0 && k % 5 === 0) {
+                document.write("<p class='pink'>" + k + "<p>");
+            } else if (k % 5 === 0) {
+                document.write("<p style='color : red;'>" + k + "<p>");
+            } else if (k % 7 === 0) {
+                document.write("<p style='color : blue;'>" + k + "<p>");
+            }
+        }
+
+        /* else if 문의 조건식을 여러개 만족할 경우,
+        처음 만족한 조건식의 실행코드 실행되고 종류 */
+
+
+    </script>
+
+    <style>
+        .pink {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

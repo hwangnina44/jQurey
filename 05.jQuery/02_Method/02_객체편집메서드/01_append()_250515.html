@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01_append()</title>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        append(), appendTo()
+        : 선택한 요소의 '하위요소'로 마지막 위치에 새 요소를 생성하거나 추가
+        : 기존 자식 요소를 맨 뒤로 이동 
+
+        $('기준요소').append('새 요소');
+        $('새 요소').appendTo('기준요소');
+        */
+
+        $(document).ready(function (){
+
+            //예제1
+            $('#listZone').append('<li>내가 마지막 append!!</li>');
+            $('<li>내가 진짜 마지막 append!!!!</li>').appendTo('#listZone');
+
+            //예제2
+
+            var num = 1; //클릭횟수 카운트
+
+            $('#append').click(function(){
+                $('.answer').append('<p>가을동화'+num+'</p>');
+                num++;
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <!-- 예제1 -->
+    <ul id="listZone">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+        <li>리스트4</li>
+        <li>리스트5</li>
+    </ul>
+
+    <!-- 예제2 -->
+    <h2>최근에 즐겨보는 드라마는 무엇입니까?</h2>
+    <button id="append">추가</button> 
+    <div class="answer">
+
+    </div>
+
+    <style>
+        div.answer {
+            margin-top: 20px;
+            padding: 10px;
+            outline: 3px solid plum;
+        }
+        div.answer p {
+            margin: 0;
+        }
+    </style>
+
+</body>
+
+</html>

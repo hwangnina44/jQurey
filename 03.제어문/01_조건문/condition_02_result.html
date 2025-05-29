@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>condition_02</title>
+</head>
+
+<body>
+	<h4>변수를 생성하고 비교할 값을 Kitty로 지정, 변수와 값이 일치한지를 조건문의 조건식으로 지정하여, "Hello Kitty!" 라는 알림창을 띄우세요.</h4>
+
+	<script>
+
+		/* var name = "Kitty";
+
+		if (name == "Kitty") {
+			alert("Hello Kitty!");
+		} */
+
+		//비교할 값(기준값!) 설정
+		var name = "Kitty";
+
+		//비교 대상 >> 사용자로부터 입력 받기
+		var userCat = prompt('고양이의 이름은?');
+
+		if (name == userCat) {
+			//이름이 일치했다!!!! >> true
+			alert("Hello Kitty!!!");
+		} else {
+			//이름이 일치하지 않았다!!! >> false
+			//alert("키티 데려와!!!!");
+
+			document.write("Welcome " + userCat);
+		}
+
+	</script>
+
+</body>
+
+</html>

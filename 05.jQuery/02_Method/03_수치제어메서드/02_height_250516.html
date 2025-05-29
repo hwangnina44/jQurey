@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_height</title>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        1) height() : 요소가 가진 '컨텐츠'의 높잇값을 반환하거나 변환
+        >> 안쪽 여백(padding)과 선(border)을 제외한 컨텐츠의 높잇값!
+
+        2) innerHeight() : 안쪽 여백(padding)을 포함한 높잇값을 반환하거나 변환
+
+        3) outerHeight() : 안쪽 여백(padding)과 선(border)을 포함한 높잇값을 반환하거나 변환
+
+        *기본형
+        1) $('요소선택').height()|innerHeight()|outerHeight(); >> 값 반환
+        2) $('요소선택').height(값)|innerHeight(값)|outerHeight(값); >> 값 변환
+        */
+
+        $(function(){
+
+            $('#height').click(function(){
+                console.log($('.box').height()); //100
+
+                $('.box').height(300);
+            });
+
+            $('#inner').click(function(){
+
+                console.log($('.box').innerHeight()); //120
+
+                $('.box').innerHeight(200);
+            });
+
+            $('#outer').click(function(){
+
+                console.log($('.box').outerHeight()); //122
+
+                $('.box').outerHeight(200);
+
+                console.log($('.box').outerHeight(true)); //128? 206? -> 206
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>height(), innerHeight(), outerHeight()</h1>
+
+    <div class="box"></div>
+
+    <button id="height">height()</button>
+    <button id="inner">innerHeight()</button>
+    <button id="outer">outerHeight()</button>
+
+    <style>
+        .box {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid blue;
+            margin: 3px;
+            background-color: lightskyblue;
+        }
+    </style>
+</body>
+</html>

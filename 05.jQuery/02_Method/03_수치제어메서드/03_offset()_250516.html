@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_offset()</title>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        offset() : 문서(document)를 기준으로 선택한 요소의 가로(x축-left)/세로(y축-top)로 떨어진 위치의 좌표값을 반환하거나 변경
+
+        $('요소선택').offet().left;
+        $('요소선택').offet().top;
+        */
+
+        $(document).ready(function(){
+
+            $('button').click(function(){
+
+                var pTop = $('p').offset().top; //50
+                var pLeft = $('p').offset().left; //200
+
+                console.log('top: ' + pTop + '\n' + 'left: ' + pLeft);
+
+                //  '내용 \n' : 내용 뒤에 줄바꿈
+
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+
+    <p>This is a paragraph.</p>
+    <br>
+    <button>Return the offset()</button>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            background-color: plum;
+            font-size: 30px;
+            position: relative;
+            left: 200px;
+            top: 50px;
+        }
+    </style>
+    
+</body>
+</html>

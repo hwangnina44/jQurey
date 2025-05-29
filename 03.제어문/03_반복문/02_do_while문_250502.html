@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02_do while</title>
+
+    <script>
+
+        /*
+        (2) do while 문 : (조건식과 관계없이) 반드시 한번은 코드를 실행하고 조건식 검사
+        >> do : 일단 실행해!!!
+
+        ////// 기본형 ////////////////////////////////////
+        
+            var 변수 = 초깃값;
+
+            do {
+                실행코드;
+                증감식;
+            } while (조건식)
+
+        /////////////////////////////////////////////////
+        */
+
+        //예제1 - 조건식 true
+        var i = 1;
+
+        do {
+            document.write('hello<br>');
+            i++;
+        } while (i < 3)
+
+        //예제2 - 조건식 false
+        var k = 10;
+
+        do {
+            document.write('byebye~~~~<br>');
+            k++;
+        } while (k < 3) //11<3, false
+
+
+        //while문과 비교하기 
+        var j = 10;
+
+        while (j < 3) { //10<3, false
+            document.write('byebye2222<br>');
+            j++;
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

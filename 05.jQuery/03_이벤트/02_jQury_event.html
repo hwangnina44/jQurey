@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_jQury_event</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        //함수만들기
+        function bye () {
+            alert('안녕히계세요');
+        }
+        $(document).ready(function(){
+           /*  $('#box').click(function(){
+                bye();
+            }); */
+            $('#box').click(bye);
+        });
+    </script>
+</head>
+<body>
+     <div id="box">클릭하세요!!</div>
+     <style>
+         #box{
+             width: 200px;
+             height: 100px;
+             background-color: antiquewhite;
+             cursor: pointer;
+         }
+     </style>
+</body>
+</html>

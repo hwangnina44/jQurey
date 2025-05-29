@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="demo" style="color: tomato;">합계를 출력하세요.</p>
+    
+    <script>
+        var target = document.getElementById('demo');
+
+        target.innerHTML = 10;
+        var demo = target.innerHTML;
+
+        document.write(typeof demo, "<br>");
+
+        demo = Number(demo);
+        document.write(typeof demo, "<br><br>");
+
+        demo += 20;
+        document.write(demo, "<br>");
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>07_easing</title>
+    <script src="jquery-1.12.4.min.js"></script><!-- 도서관 -->
+    <script src="jquery-ui-1.8.23.custom.min.js"></script>
+    <script>
+        /*
+        이징(easing) 효과
+        :애니메이션 시작과 끝에 가속도를 변경해 주는 옵션
+        :이징효과는 효과명을 정확히 표기해야 적용!!(오타있음 실행 x)
+        :jQuery UI 라이브러리를 꼭 연결할것
+    
+        */
+
+        $(document).ready(function () {
+            $('button').click(function () {
+                // $('#box').slideToggle(1000);
+                var easing = $(this).text();
+                console.log(easing);
+
+                $('#box').slideUp(1000, easing, function () {
+                    $(this).slideDown(1000, easing);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container"> 
+        <!-- easing 버튼 -->
+        <div class="btngrp">
+            <button>easeInQuad</button>
+            <button>easeOutQuad</button>
+            <button>easeInOutQuad</button>
+            <button>easeInCubic</button>
+            <button>easeOutCubic</button>
+            <button>easeInOutCubic</button>
+            <button>easeInQuart</button>
+            <button>easeOutQuart</button>
+            <button>easeInOutQuart</button>
+            <button>easeInQuint</button>
+            <br>
+            <button>easeOutQuint</button>
+            <button>easeInOutQuint</button>
+            <button>easeInSine</button>
+            <button>easeOutSine</button>
+            <button>easeInOutSine</button>
+            <button>easeInExpo</button>
+            <button>easeOutExpo</button>
+            <button>easeInOutExpo</button>
+            <button>easeInCirc</button>
+            <button>easeOutCirc</button>
+            <br>
+            <button>easeInOutCirc</button>
+            <button>easeInElastic</button>
+            <button>easeOutElastic</button>
+            <button>easeInOutElastic</button>
+            <button>easeInBack</button>
+            <button>easeOutBack</button>
+            <button>easeInOutBack</button>
+            <button>easeInBounce</button>
+            <button>easeOutBounce</button>
+            <button>easeInOutBounce</button>
+        </div>
+        <div id="box">
+            <img src="image/cat.jpg" alt="">
+        </div>
+        <style>
+            button {
+                font-size: 20px;
+                border: 3px solid lightcoral;
+                background-color: transparent;
+                margin-bottom: 10px;
+            }
+        </style>
+    </div>
+</body>
+
+</html>

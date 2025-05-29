@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03_else_if문</title>
+
+    <script>
+        /* 
+        3. else if : 두가지 이상의 조건식에서 정해놓은 조건을 만족했을 때 실행되는 조건문
+        
+        //////////////기본형////////////
+         if (조건식1) {
+         실행 코드1;
+         } else if (조건식2){
+          실행코드2;
+          } else if(조건식3) {
+           실행코드3;
+           } else if (조건식4) {
+            실행코드n;
+            }else {
+            실헹코드;
+        }
+              
+        ////////////////////////////////
+        * 주어진 조건식을 '차례로' 검사, 만족하는 조건식이 나오면 그에 해당하는 코드를 실행하고 조건문 종료
+        * 조건식 중 만족하는 값이 하나도 없으면 else문 코드 실행
+        
+         */
+
+
+        // 예제 1 만족도에 따른 메세지 출력
+        /* 
+        만족도 5점 만점
+        5 : 매우만족
+        4 : 만족
+        3 : 보통
+        2 : 불만
+        1 : 매우 불만
+        */
+        /* 
+        var score = Number(prompt('서비스에 대한 마족도를 평가해 주세요(1~5점 사이 숫자만 입력)'));
+
+        if(score === 5) {
+            alert('매우만족');
+        } else if(score===4) {
+            alert('만족');
+        } else if (score === 3) {
+            alert('보통');
+        } else if (score === 2) {
+            alert('불만');
+        } else if (score === 1) {
+            alert('매우 불만');
+        } else {
+            alert('점수를 바르게 입력하세요');
+        }
+        */
+
+
+        // 예제 2  입력받은 월에 따라 계절을 화면에 출력하기
+        // 3~5 봄 , 6~8 여름 , 9~11 가을 12~2 봄
+        //지금은 몇 월 입니까 (숫자만 입력해주세요)
+        //1~12월 중에 입력해주세요.
+
+        /* 
+        변수 정하기 
+        1.배열변수 봄, 여름 , 숫자 넣기
+        2.배열 변수를 담아줄 변수 만들기
+        3.조건문 설정하기
+        
+        */
+
+       /*  var spring = 3||4||5;
+        var summer = 6||7||8;
+        var fall =  9||10||11;
+        var winter = 1||2||12;
+
+        var season = Number (prompt('지금은 몇 월 입니까?(숫자만 입력해주세요.)'));
+        
+        if(season === spring) {
+            alert('봄');
+        } else if (season === summer) {
+            alert ('여름');
+        } else if (season === fall) {
+            alert ('가을');
+        } else if (season === winter) {
+            alert ('겨울');
+        } else {
+            alert ('숫자를 바르게 입력해주세요');
+        }  */
+
+
+        /* 
+        봄(3~5) month = 3,4,5
+        여름 (6~8) month =6,7,8
+        여름 (9~11) month = 9,10,11
+        겨울 (12~2) month = 12,1,2
+
+        계절별 구간 설정
+        1) 봄 3~5
+        3 <=month <=5
+        3<=month && month<=5
+        
+        2) 여름 6~8
+        6<=month && month<=8
+
+        3) 가을 9~11
+        9<=month && month<=11
+        
+        4) 겨울
+        month === 12|| month=== 1|| month ===2
+        
+        */
+
+        var month = Number(prompt('지금은 몇 월입니까?(숫자만 입력)'))
+        
+       /*  if (3<=month && month<=5) {
+            document.write ('봄');
+        } else if  (6<=month && month<=8) {
+            document.write ('여름');
+        } else if(9<=month && month<=11){
+            document.write('가을');
+        } else if( month === 12|| month=== 1|| month ===2) {
+            document.write('겨울');
+        } else {
+            alert('1~12월중에서 입력해주세요');
+        } */
+       if (3<=month && month<=5) {
+            document.write ('봄');
+        } else if  (6<=month && month<=8) {
+            document.write ('여름');
+        } else if(9<=month && month<=11){
+            document.write('가을');
+        } else if( month === 12|| month=== 1|| month ===2) {
+            document.write('겨울');
+        } else {
+            alert('1~12월중에서 입력해주세요');
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

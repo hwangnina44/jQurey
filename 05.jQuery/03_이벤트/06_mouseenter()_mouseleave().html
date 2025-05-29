@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06_mouseenter()_mouseleave()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        mouseenter() : 대상요소의 경계범위에 마우스 포인터가 들어가면 이벤트 발생
+        >>대상요소에 마우스 포인터가 들어갔을 떄만 이벤트 발생!
+        >>이벤트 대상의 자식요소에 마우스가 올라가도 연속적으로 이벤트가 발생하지 않는다.
+
+        mouseleave() : 대상요소의 경계범위에 마우스 포인터가 벗어나면 이벤트 발생
+
+        **이벤트 버블링현상이 일어나지 않는다.
+        */
+        $(function () {
+            $('.box').on({
+                'mouseenter': function () {
+                    $(this).css({
+                        backgroundColor: 'tomato'
+                    });
+                },
+                'mouseleave': function () {
+                    $(this).css({
+                        backgroundColor: 'transparent'
+                    });
+                }
+            });
+            //이벤트 메서드
+            $('.box').mouseenter(function(){
+                $(this).find('a').css('color','white')
+            }).mouseleave(function(){
+                $(this).find('a').css('color','black')
+            });
+        });
+
+        /* 
+        hover() : 선택한 요소에 마우스 포인터가 올라갈때(mouseenter)와 벗어날대(mouseleave) 각각 이벤트 발생
+        $('이벤트 대상').hover(
+            function(){마우스 leaver될때 실행코드},
+            function(){마우스 leaver될때 실행코드},
+        );
+        */
+       $(function(){
+        //hover1
+/*         $('.box2').hover(function(){
+            //mouseenter
+            $(this).css({
+                backgroundColor: 'pink'
+            })
+        },function(){
+            //mousleave
+            $(this).css({
+                backgroundColor : 'transparent'
+            })
+        }); */
+        //hover2
+        $('.box2').hover(function(){
+            $(this).append('<p>추가!!')//선택한 요소에 '자식요소' 마지막에 추가!
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <p><a href="#">내용1</a></p>
+        <p><a href="#">내용2</a></p>
+        <p><a href="#">내용3</a></p>
+    </div>
+    <div class="box">
+        <p><a href="#">내용4</a></p>
+        <p><a href="#">내용5</a></p>
+        <p><a href="#">내용6</a></p>
+    </div>
+    <div class="box">
+        <p><a href="#">내용7</a></p>
+        <p><a href="#">내용8</a></p>
+        <p><a href="#">내용9</a></p>
+    </div>
+
+    <h2>hover()</h2>
+    <div class="box2">
+        <p>컨텐츠1</p>
+        <p>컨텐츠2</p>
+        <p>컨텐츠3</p>
+    </div>
+    <style>
+
+        .box{
+            width: 300px;
+            outline: 1px solid #ccc;
+        }
+        .box2{
+            outline: 2px solid black;
+            width: 50%;
+            padding: 10px;
+        }
+        .box2 p {
+            display: inline-block;
+            margin: 0;
+            margin-right: 10px;
+        }
+        
+    </style>
+</body>
+
+</html>

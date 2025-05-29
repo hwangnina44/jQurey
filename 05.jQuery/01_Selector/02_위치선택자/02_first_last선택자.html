@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>first_last 선택자</title>
+
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        first()선택자
+        - 선택된 요소 중 첫번째 요소만 선택
+        $('요소선택:first')
+        $('요소선택').first()
+
+        last()선택자
+        - 선택된 요소 중 마지막 요소만 선택
+        $('요소선택:last')
+        $('요소선택').last()
+
+        */
+
+        $(document).ready(function () {
+            //first
+            $('#menu li:first').css('background-color', 'red');
+            $('#menu li').first().css('color', 'silver');
+
+            //last
+            $('#menu li:last').css('background-color', 'skyblue');
+            $('#menu li').last().css('color', 'red');
+
+            //first vs last-child
+
+            $('.menu li:first').css('background-color', 'green');
+            $('.menu li:first-child').css({
+                fontSize: '30px',
+                color: 'tomato'
+            });
+            //first()선택자는 '선택된 것 중 무조건 첫번째 것만 '선택
+            //:first-child는 부모를 기준으로 첫번쨰 요소를 전부 선택
+
+            $('.menu li:last').css('background','mistyrose');
+            $('.menu li:last-child').css('color','blue');
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <h1>first &amp; last 선택자</h1>
+    <ul id="menu">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용4</li>
+    </ul>
+
+    <!-- first vs last-child -->
+    <h2>first vs last-child</h2>
+
+    <ol class="menu">
+        <li>내용</li>
+        <li>내용</li>
+        <li>내용</li>
+        <li>내용</li>
+    </ol>
+
+    <ol class="menu">
+        <li>내용</li>
+        <li>내용</li>
+        <li>내용</li>
+        <li>내용</li>
+    </ol>
+
+    <ol class="menu">
+        <li>내용</li>
+        <li>내용</li>
+        <li>내용</li>
+        <li>내용</li>
+    </ol>
+</body>
+
+</html>

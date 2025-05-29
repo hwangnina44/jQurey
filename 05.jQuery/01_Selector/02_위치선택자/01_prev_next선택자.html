@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>01_prev_next선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        이전(prev) & 다음(next) 요소 선택자
+        - 선택한 요소를 기준으로 바로 이전 또는 다음 요소만 선택
+        $('기준요소').prev();
+        $('기준요소').next(); .box+p {} //.box 다음에 오는 p태그를 선택
+        
+        이전요소 전체 $ 다음 요소 전체 선택자
+        : 선택한 요소를 기준으로 이전에 오는 전체 형제요소 또는 다음에 오는 전체 형제요소를 선택
+        $('기준요소').prevAll();
+        $('기준요소').nextAll();
+        
+        */
+
+        $(function(){
+            var style_1= {
+                backgroundColor : 'greenyellow',
+                border:'2px solid #f00'
+            };
+            var style_2 = {
+                'background-color':'plum',
+                'text-decoration': 'underline',
+                'color':'navy'
+            };
+
+            $('.txt').prev().css(style_1);
+            $('.txt').next().css(style_2);
+            $('.txt+p').css(style_2); 
+            //$('.txt').prevAll().css(style_1);
+            //$('.txt').nextAll().css(style_2);
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>위치기반 선택자</h1>
+        <p>내용1</p>
+        <p class="txt">내용2 (기준)</p>
+        <p>내용3</p>
+        <p>내용4</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01_fadeIn()_fadeOut()</title>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        *효과메서드 기본형
+        $('요소선택').효과메서드(효과소요시간, 가속도, 콜백함수);
+
+        (1) 효과소요시간 : 효과메서드가 진행되는 동안 소요되는 시간
+        - 방법1 : 'slow','normal', 'fast'
+        - 방법2 : 밀리초(ms) 사용, 1000(1초), 500(0.5초)
+        - 기본값은 400(0.4초)
+
+        (2) 가속도(easing) : 효과가 적용되는 동안의 가속도 설정
+        - 'swing' : 기본값, 시작과 끝은 느리게, 중간은 빠른속도로 움직임
+        - 'linear' : 일정한 속도로 움직임
+        - easing 효과는 제이쿼리UI를 사용하면 다양하게 사용할 수 있음!
+
+        (3) 콜백함수 : 효과가 끝난 후에 실행할 함수
+
+        *효과메서드의 매개변수(parameter)는 생략 가능
+        *매개변수 생략 시, 기본값 적용
+
+        */
+
+        /*
+        fade효과 메서드 - css의 opacity, display 값의 변경 
+
+        fadeIn(소요시간, 가속도, 콜백함수)
+        : fade효과를 적용하여 서서히 보여지도록 하는 것
+        : display를 none이 아닌 상태로 변경한 후 opacity 값을 0에서 1로 변경
+
+        fadeOut(소요시간, 가속도, 콜백함수)
+        : fade 효과를 적용하여 서서히 사라지도록 하는 것
+        : Opacity 값을 1에서 0으로 변경한 후 display:none; 으로 변경,
+        요소가 점점 투명해지면서 사라짐
+        */
+
+        $(document).ready(function(){
+            //구현을 위한 초기 설정
+            //$('#box1, #box2, #box3').css('display','none')
+            $('#box1,#box2,#box3').hide();
+            //fadeIn()
+            //$('#box1').fadeIn();
+            $('.btn1').click(function(){
+                $('#box1').fadeIn();//400,swing,콜백함수X
+                $('#box2').fadeIn(2000);
+                $('#box3').delay(2000).fadeIn(3000); //delay(시간지나고 효과를 진행)
+            });
+
+            //fadeOut
+            $('.btn2').on('click',function(){
+               // $('#box4').fadeOut();
+               $('#box5').fadeOut(2000, 'linear', function(){
+                alert('bye bye~');
+               });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h2>fadeIn()</h2>
+    <button class="btn1">fadeIn boxs</button>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+
+    <h2>fadeOut()</h2>
+    <button class="btn2">fadeOut boxs</button>
+    <div id="box4"></div>
+    <div id="box5"></div>
+
+    <style>
+        #box1,
+        #box2,
+        #box3 {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+            display: none;
+        }
+        /* 화면에 보이지않은 상태여야 효과를 줄수있다. */
+        #box1 {
+            background-color: lightblue;
+        }
+        #box2 {
+            background-color: lightcoral;
+        }
+        #box3 {
+            background-color: lightpink;
+        }
+        #box4,
+        #box5 {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        #box4 {background-color: lightseagreen;}
+        #box5 { background-color: antiquewhite;}
+    </style>
+</body>
+
+</html>

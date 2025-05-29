@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>Array</title>
+    <style>
+        #here {
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, navy, purple);
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+        }
+    </style>
+
+    <script>
+        //html 문서 로딩 후 실행!
+        //이벤트 등록 메서드-addEventListener("이벤트명",실행코드)
+        window.addEventListener('load', function () {
+            var target = document.getElementById('here');
+            target.innerHTML = "빨강";
+            target.innerHTML += "주황";
+            target.innerHTML += "노랑";
+        });
+    </script>
+</head>
+
+<body>
+    <h1>무지개색을 나열해 보세요!</h1>
+    <p id="here">내용</p>
+    <script>
+        
+        //배열 생성하기
+        //.var 배열변수명 = 배열
+        //1.var 배열변수명 = new Array('값1','값2','값n');*********************배열을 만들면서 동시에 값넣기
+        //배열의 인덱스 번호 선택 -> 배열변수[인덱스번호]
+
+        var days = new Array('월','화','수','목','금','토','일');
+        document.write(days,'<br>');
+        document.write(days[4],'<br>');
+        
+        var weekend = days[5];
+        weekend+=days[6];
+        //weekend = weekend + day[6]
+        document.write('주말에 해당하는 요일은' + weekend +'입니다!<br>');
+
+        //1-2. var 배열변수명 = new Array(); ************배열만 만들어 놓고 값을 나중에
+        //배열변수명[index] = 값;
+
+        var seasonArr = new Array();
+        seasonArr[0] = "봄봄";
+        seasonArr[1] = "겨울";
+        seasonArr[2] = "여름";
+        seasonArr[3] = "가을";
+        document.write(seasonArr,'<br>');
+
+
+        //2.var 배열변수= ['값1','값2','값n']; 값을 처음부터 지정
+
+         var rainbowColor = ['빨','주','노','초','파','남','보'];
+        // document.write(rainbowColor,'<br>');
+         document.write(rainbowColor[4]+" "+rainbowColor[5],rainbowColor[6],'<br>');
+         document.write(rainbowColor[4],+" "+rainbowColor[5],rainbowColor[6],'<br>');
+
+         //2-2 var 배열변수명 =[];
+         //배열변수[index]= 값;
+
+        var greenAca = [];
+        //length 속성 - 배열에 길이(칸에 갯수) 정보를 반환받겠다
+        console.log(greenAca.length);
+/*      greenAca.length = 7 // greenAca 배열에 7개의 방을 만들어 
+        console.log(greenAca.length); */
+        greenAca[0] = "강남";
+        greenAca[1] = "역삼";
+        greenAca[2] = "종로";
+        greenAca[3] = "신촌";
+        greenAca[4] = "신도림";
+        console.log(greenAca.length); //5
+
+        //배열값 수정
+        greenAca[3] = "부천";
+    
+
+
+
+
+        //배열 객체.메서드();
+    
+        var line2=['강남','역삼','선릉','삼성'];
+        var line3=['신사','압구정','옥수'];
+        var result;
+
+        //1.join('연결문자') - 배열객체의 데이터를 연결문자 기준으로 1개의 문자형 테이터로 반환
+
+        result= line2.join('-');//강남-역삼-선릉-삼성
+        console.log(result);
+    
+        //2.concat(연결할 배열) - 2개의 배열 객체를 하나로 결합
+        result= line2.concat(line3);
+        console.log(result);
+
+        //3.slice(index1,index2) - 배열 객체 데이터 중 원하는 인덱스 구간만큼 잘라서 배열객체를 가져옴
+        //index1부터 index2 '이전'까지
+
+        result = line2.slice(0,2);
+        console.log(result);
+
+        //4.sort() - 배열객체 데이터를 오름차순으로 적용
+        line2.sort();
+        console.log(line2);
+
+        //5.reverse() - 배열 객체 데이터를 역순으로 반환
+        line2.reverse();
+        console.log(line2);
+
+        //6.splice(index,갯수,새 데이터) - 배열 객체의 지정 데이터를 삭제하고 그 구간에 새 데이터를 삽입
+        //index는 데이터 삭제 지점
+        //갯수는 삭제할 데이터 갯수
+        line3.splice(2,1,'금호','약수');
+        console.log(line3);
+
+        var greenArr= ['교대','방배','강남'];
+        var yellowArr=['왕십리','서울숲','압구정로데오'];
+
+        //데이터 삭제 - pop(),shift();
+        //7.pop -배열에 저장된 데이터중 '마지막'인덱스에 저장된 데이터 삭제   <->push     
+        //8.shift - 배열에 저장된 데이터중 '첫번째'인덱스에 저장된 데이터 삭제 <-> unshift
+
+        yellowArr.pop ();
+        console.log(yellowArr);
+
+        var data1 = yellowArr.pop();
+        console.log('삭제된 데이터 : '+ data1);
+        console.log( yellowArr);
+        /////////////////////////////////////////
+        greenArr.shift();
+        console.log(greenArr); 
+        
+        var data2 = greenArr.shift();
+        console.log('삭제된 데이터 : '+ data2);
+        //데이터 추가 - push(),unshift();
+        //9.push(new data) - 배열 객체의 '마지막' 인덱스에 새 데이터 삽입 
+        //문자형데이터가 될수도 있고 변수가 될수도 있다.
+        //10.unshift((new data)) - 배열 객체의 '첫번째' 인덱스에 새 데이터 삽입
+        yellowArr.push ('분당선 만세');
+        console.log(yellowArr);
+
+        yellowArr.push (data1);
+        console.log(yellowArr);
+
+        greenArr.unshift('안녕2호선!');
+        console.log(greenArr);
+
+        greenArr.unshift(data2);
+        console.log(greenArr);
+    </script>
+</body>
+
+</html>

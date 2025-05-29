@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>1cutslide-2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li {
+            list-style: none;
+        }
+        #slider {
+            width: 1200px;
+            border: 1px solid lightcoral;
+            margin: 40px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #gallery {
+            width: 400%;
+            position: relative;
+            
+        }
+        #gallery::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #gallery img {
+            float: left;
+            width: 25%;
+            display: block;
+        }
+
+        #pager {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+        #pager li {
+            height: 40px;
+            width:40px;
+            border-radius: 6px;
+            background-color: lightsalmon;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            display: inline-block;
+            cursor: pointer;
+        } 
+        #pager li:hover {
+            background-color: lightgoldenrodyellow;
+        }
+
+        /* 클릭된 pager 디자인 적용 */
+        #pager .active {
+            background-color: aqua;
+            color: #fff;
+        }
+    </style>
+    <script src="script/jquery-1.12.4.min.js"></script>
+    <script src="script/1cutslide-2.js"></script>
+</head>
+<body>
+    <!-- 
+    #slider : 실제 슬라이드가 보여질 공간
+    #gallery : 슬라이드 전체를 담는 부모
+    #gallery img : 각각을 담는 부모 
+    -->
+    <div id="slider">
+        <div id="gallery" >
+            <img src="images/illom-slide1.jpg" alt="">
+            <img src="images/illom-slide2.jpg" alt="">
+            <img src="images/illom-slide3.jpg" alt="">
+            <img src="images/illom-slide4.jpg" alt="">
+        </div>
+        <ul id="pager">
+            <!-- <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li> -->
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+</html>

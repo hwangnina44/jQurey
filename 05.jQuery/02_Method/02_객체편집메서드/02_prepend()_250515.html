@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02_prepend()</title>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        prepend(), prependTo()
+        : 선택한 요소의 '하위요소'로 맨 앞에 새 요소를 생성하거나 추가
+        : 기존 자식 요소를 맨 앞으로 이동
+        
+        $('기준요소').prepend('새 요소');
+        $('새 요소').prependTo('기준요소');
+
+        */
+
+        $(function () {
+
+            //예제1
+            $('#listZone').prepend('<li>내가 처음 prepend!!!</li>');
+            $('<li>내가 진짜 처음 prependTo!!!</li>').prependTo('#listZone');
+
+            //예제2 - 2개의 이미지 번갈아 추가하기
+            //이미지 경로를 담는 배열!!
+            var imgSrc = ['https://health.chosun.com/site/data/img_dir/2024/12/13/2024121302504_0.jpg','https://cdn.news.hidoc.co.kr/news/photo/202101/23617_56147_0843.jpg'];
+
+            var idx = 0; // 배열 인덱스 변수!!
+
+            //$('.img-box').prepend('<img src="' + imgSrc[idx] + '" alt="고양이">');
+
+            $('.img-box').click(function(){
+
+                //이미지 넣기!
+                $(this).prepend('<img src="' + imgSrc[idx] + '" alt="고양이">');
+
+                //1) 이미지 순번바꾸기1
+                /* idx++;
+                if (idx >= 2){ // idx === 2
+                    idx=0;
+                    console.log('if문 실행!!');
+                } */
+
+                //2) 이미지 순번바꾸기2 - 삼항조건 연산자
+                // 조건식 ? 실행문1 : 실행문2;
+
+                idx === 0 ? idx=1 : idx=0;
+
+
+            });
+
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <!-- 예제1 -->
+    <ul id="listZone">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+        <li>리스트4</li>
+        <li>리스트5</li>
+    </ul>
+
+    <!-- 예제2 -->
+    <h2>하단 상자를 클릭하여 이미지를 추가해 보세요!</h2>
+    <div class="img-box">
+        <!-- <img src="https://health.chosun.com/site/data/img_dir/2024/12/13/2024121302504_0.jpg" alt="기지개 켜는 고양이">
+        <img src="https://cdn.news.hidoc.co.kr/news/photo/202101/23617_56147_0843.jpg" alt="미소짓는 고양이"> -->
+    </div>
+    
+    <!-- <div class="img-box"></div> -->
+
+    <style>
+        .img-box {
+            outline: 2px solid plum;
+            padding: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .img-box img {
+            width: 300px;
+        }
+    </style>
+
+</body>
+
+</html>

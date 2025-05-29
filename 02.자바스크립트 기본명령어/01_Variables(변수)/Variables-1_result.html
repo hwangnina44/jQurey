@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Variables-1</title>
+</head>
+
+<body>
+    <h3>변수 carName을 생성하고 변수값 "Volvo"를 지정하고 "Display the result here" 위치에 변수를 이용해 출력하세요.</h3>
+    
+    <p id="demo" style="color: tomato">Display the result here.</p>
+
+    <script>
+        // Create the variable here
+
+        /* var carName;
+        carName = "Volvo"; */
+
+        var carName = "Benz";
+        //document.write(carName);
+
+        //새로운 속성값 지정!
+        document.getElementById('demo').innerHTML = carName;
+
+        /*
+        속성으로 할 수 있는 것
+
+        1) 속성값 반환
+        2) 속성값 설정
+        
+        */
+
+        //innerHTML에 변경된 속성값 반환!!
+        var result = document.getElementById('demo').innerHTML;
+        console.log(result);
+
+        console.log(document.getElementById('demo').innerHTML);
+        document.write(document.getElementById('demo').innerHTML);
+
+
+
+    </script>
+</body>
+
+</html>

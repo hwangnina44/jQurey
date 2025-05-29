@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_sliderDowm()_sliderUp()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        silde 효과 메서드 - css의 height,overflow 변경 //fade 효과 메서드 -css의 opacity,display:none변경
+        
+        (단, overflow는 효과메서드가 진행되는 동안만 적용!!)
+
+        slideDown(소요시간,가속도,콜백함수)
+        :숨겨진 요소가 아래로 펼쳐짐
+        :효과 대상의 height값을 원래 높이값으로 애니메이션 한 뒤,
+        :display를 none이 아닌 원래 값으로 변경
+       
+        slideUp(소요시간,가속도,콜백함수)
+        :요소가 위로 접히면서 숨겨짐
+        :효과대상의 height값을 0으로 애니메이션 한 뒤,
+        :display:none으로 변경
+        */
+
+        $(function(){
+            $('#flip').on('click',function(){
+                $('#panel').slideDown(1000);
+            });
+            $('#flip2').on('click',function(){
+                $('#panel2').slideUp(2000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="slide">
+        <div id="flip">click to slidedown</div>
+        <div id="panel">hellow world</div>
+    </div>
+
+    <div class="slide2">
+        <div id="flip2">click to slidedown</div>
+        <div id="panel2">Good bye world</div>
+    </div>
+
+    <style>
+        #flip, #panel {
+            border: 1px solid red;
+            background-color: lightcoral;
+            padding: 5px;
+            font-size: 24px;
+            text-align: center;
+        }
+        #flip {
+            cursor: pointer;
+        }
+        #panel {
+            padding: 50px;
+            border-top: none;
+            display: none;
+            /* display none처리 */
+        }
+
+        .slide2 {
+            margin-top: 50px;
+        }
+        #flip2,#panel2{
+            border: 1px solid red;
+            background-color: lightcoral;
+            padding: 5px;
+            font-size: 24px;
+            text-align: center;
+        }
+        #flip2 {
+            cursor: pointer;
+        }
+        #panel2{
+            padding: 50px;
+            border-top: 0;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_on()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        1. 단독 이벤트 등록 메소드 : 한 동작에 대한 이벤트를 등록
+        ex ) $ ('btn').click(function(){}); 
+        1. $ ('btn') : 이벤트 대상
+        2. click :  이벤트 
+        3.function(){} : 이벤트 핸들러 (이벤트가 발생했을 때 실행될 코드!)
+
+
+        2. 그룹 이벤트 등록 메소드 : 두가지 이상의 동작(이벤트)에 대한 이벤트 등록>>on()메소드 사용
+        ex) 마우스 포인터를 올리거나 클릭했을때 환영 메서지 출력
+         >> 이벤트 1 : 마우스 포인터를 올리거나
+         >> 이벤트 2 : 클릭했을 떄
+
+         on() 메소드 등록방식 1
+         $('이벤트 대상').on('이벤트명1 이벤트명2 이벤트명n', 'function(){}')
+        */
+       $(function(){
+        $('#btn').on('click mouseover', function(){
+            console.log('welcome');
+        });
+       });
+
+       /* 
+       on() 메서드 등록방식 2
+       $('이벤트 대상')/on({
+       '이벤트명1 이벤트2 이벤트3' : function(){
+            실행코드;
+       }
+       });
+       */
+
+       $(function(){
+        $('p').on({
+            'click dblclick' : function(){
+                console.log('드라이브가자!!')
+            }
+        });
+       });
+
+       /* 
+       on()메서드 등록방식 3 
+       $('이벤트 대상').on({
+        '이벤트명 1' : function(){실행코드},
+        '이벤트명 2' : function(){실행코드},
+        '이벤트명 3' : function(){실행코드},
+       });
+       */
+      $(function(){
+        $('h4').on({
+            'mouseover': function(){
+                console.log('벌써 더워요');
+            },
+            'mouseout' : function(){
+                console.log('아직여름이야');
+            }
+        });
+      });
+    </script>
+</head>
+<body>
+    <button id="btn">눌러봐</button>
+    <p>주말에 가장 하고 싶은 일은?</p>
+    <h4>여름이 오고있어요.</h4>
+    <style>
+        p {
+            background-color: antiquewhite;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

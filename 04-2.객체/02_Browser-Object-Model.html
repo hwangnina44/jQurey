@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02_Browser-Object-Model</title>
+
+    <script>
+
+        /*
+        2. 브라우저 객체 모델 (BOM : Browser Object Model)
+        - 브라우저에 내장된 객체
+        - window는 브라우저 객체의 최상위 객체
+
+        window
+            └ document, screen, location, history, navigator
+
+        document
+            └ html, head, body....   
+
+        */
+
+        /*
+        1) window 객체 : 브라우저 객체의 최상위 객체
+
+        *window 객체 메서드
+        - open("url","새 창 이름","새 창 옵션") : 지정한 url 페이지를 새 브라우저 창으로 나타냄
+        - close() : 브라우저 창을 닫음
+        - alert("data") : 경고창을 나타내고 데이터를 보여줌
+        - confirm("data") : 질문내용(data)을 알림창으로 보여줌, 확인 또는 취소 가능
+        **[확인] 버튼을 누르면 true, [취소]버튼을 누르면 false 반환
+
+        - prompt("질문","기본응답") : 질문과 답변 질의응답창(문자형 데이터 반환)
+
+        - moveTo(x,y) : 지정한 새 창으로 위치를 이동
+        - resizeTo(width, height) : 지정한 새 창의 크기를 변경
+
+        - setInterval(function(){자바스크립트 실행코드;}, 일정시간(ms) 간격) : 지속적으로 일정한 시간 간격으로 함수를 호출하여 코드를 실행
+        - clearInterval(참조변수) : setInterval()을 제거하기 위해 사용
+
+        - setTimeout(function(){자바스크립트 실행코드;}, 일정시간(ms) 간격) : 단 한번! 일정한 시간 간격으로 함수를 호출하여 코드를 실행
+        - clearTimeout(참조변수) : setTimeout()을 제거하기 위해 사용
+
+        **window 객체 생략 가능 메서드
+        alert(), confirm(), prompt(), setInterval(), clearInterval(), setTimeout(), clearTimeout()
+
+        */
+
+        //window.open("http://www.naver.com", "네이버", "width=350, height=400");
+
+        //open() 메서드로 팝업창 띄우기
+        //window.open("popup.html","빅이슈","width=500, height=600, top=100, left=200");
+
+        /*
+        일정한 시간 간격으로 코드 실행하기
+        (1) setInterval()
+
+        /////////////////기본형/////////////////////////////////////
+
+            var 참조변수 = setInterval(function(){
+                자바스크립트 실행코드;
+            }, 시간간격(ms));
+
+            var 참조변수 = setInterval(실행코드(함수), 시간간격(ms));
+
+        ////////////////////////////////////////////////////////////
+        
+        (2) clearInterval(참조변수)
+        */
+
+        //예시 : 변수 i가 3초 간격(ms단위는 1초가 1/1000)으로 1씩 증가
+
+        /* var i = 1;
+
+        var int = setInterval(function(){
+            console.log(i);
+            i++;
+        }, 3000); */
+
+        //예제 - 일정한 간격으로 증가/감소 시키기
+        var addNum = 0;
+        var subNum = 1000;
+
+        //3초 간격(3000)으로 반복실행, addNum의 값이 1씩 증가
+        var auto_1 = setInterval(function () {
+            addNum++;
+            console.log('addNum: ' + addNum);
+        }, 3000);
+
+
+        //3초 간격(3000)으로 반복실행, subNum의 값이 1씩 감소
+        var auto_2 = setInterval(function () {
+            subNum--;
+            console.log('subNum: ' + subNum);
+        }, 3000);
+
+        /*
+        (3) setTimeout()
+        ///////////////////기본형//////////////////////////////
+
+            var 참조변수 = setTimeout(function(){
+                자바스크립트 실행코드;
+            }, 시간간격(ms));
+
+            var 참조변수 = setTimeout(실행코드(함수), 시간간격);
+        ///////////////////////////////////////////////////////
+
+        (4) clearTimeout(참조변수)
+        */
+
+        //예제 - setTimeout() 메서드를 이용하여 지정한 시간 간격으로 단 한번 실행, 변수에 값을 1만큼 증가시킨 후 콘솔 패널에 변수값 출력
+
+        var timeNum = 0;
+        var auto = setTimeout(function () {
+            timeNum++;
+            console.log('timeNum: ' + timeNum);
+        }, 5000); //5초 뒤 한번 실행!
+
+
+        /*
+        2) screen객체 : 사용자의 모니터 정보(속성)를 제공하는 객체, 모니터의 너비나 높이, 컬러표현 bit를 반환
+
+        기본형 : screen.속성;
+
+        *screen객체 속성
+        - screen.width;  화면의 너빗값을 반환
+        - screen.height;  화면의 높잇값을 반환
+        - screen.availWidth;  작업표시줄을 제외한 화면의 너빗값을 반환
+        - screen.availHeight;  작업표시줄을 제외한 화면의 높잇값을 반환
+        - screen.colorDepth;  사용자 모니터가 표현 가능한 컬러 bit 반환
+
+        */
+
+        var scWidth = screen.width,
+            scHeight = screen.height,
+            avaWidth = screen.availWidth,
+            avaHeight = screen.availHeight,
+            colorDep = screen.colorDepth;
+
+        document.write(scWidth, '<br>');
+        document.write(scHeight, '<br>');
+        document.write(avaWidth, '<br>');
+        document.write(avaHeight, '<br>');
+        document.write(colorDep, '<br>');
+
+
+        /*
+        3) location 객체 : 사용자 브라우저와 관련된 속성과 메서드를 제공하는 객체, 현재 URL에 대한 정보(속성)와 새로고침(reload) 메서드를 제공
+
+        기본형 : location.속성; 또는 location.메서드();
+
+        */
+
+        //[1] href; 속성
+        var loHref = location.href; //사용자 브라우저의 url 경로값 반환
+        document.write('<h3>' + loHref + '</h3>');
+
+        function lo_href() {
+            location.href = "http://www.naver.com";
+            //새로 지정한 속성값으로 이동
+        }
+
+        //[2] reload() 메서드 : 현재 페이지 새로고침
+        function lo_reload() {
+            alert('짜잔~~~~~~~~~~');
+            location.reload();
+        }
+
+        //[3] 3초 후에 지정된 url로 이동하는 함수
+        function lo_set(url) {
+            window.setTimeout('location.href = "' + url + '";', 3000);
+        }
+
+        /*
+        4) history 객체 : 사용자가 방문한 사이트의 기록을 남기고 이전 방문한 사이트의 다음 방문 사이트로 다시 돌아갈 수 있는 속성과 메서드
+
+        기본형 : history.속성; 또는 history.메서드();
+
+        *history 객체의 속성과 메서드 
+        - history.length;  사용자가 방문한 사이트의 기록을 남긴 총 수량
+        - history.back();  사용자가 방문한 사이트 중 이전에 방문한 사이트로 이동
+        - history.back(2);  사용자가 방문한 사이트 중 두 단계 이전에 방문한 사이트로 이동
+
+
+        5) navigator 객체 : 현재 방문자가 사용하는 브라우저 정보와 운영체제 정보 등을 제공 (속성값 변경 불가, 읽기만 가능)
+        
+        - navigator.userAgent;  브라우저의 이름, 버전 및 플랫폼 정보 반환
+        - navigator.language;  현재 사용중인 브라우저의 기본 언어 설정 정보 반환 
+
+        */
+
+        var naviInfo = navigator.userAgent;
+        document.write('브라우저 정보: ' + naviInfo, '<br>');
+
+        var naviLang = navigator.language;
+        document.write('브라우저 사용언어: ' + naviLang, '<br>');
+
+
+        //w3schools.com
+
+        var text = "<p>Browser CodeName: " + navigator.appCodeName + "</p>" +
+            "<p>Browser Name: " + navigator.appName + "</p>" +
+            "<p>Browser Version: " + navigator.appVersion + "</p>" +
+            "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>" +
+            "<p>Browser Language: " + navigator.language + "</p>" +
+            "<p>Browser Online: " + navigator.onLine + "</p>" +
+            "<p>Platform: " + navigator.platform + "</p>" +
+            "<p>User-agent header: " + navigator.userAgent + "</p>";
+
+        document.write(text);
+
+    </script>
+</head>
+
+<body>
+
+    <h1>일정시간 간격으로 값 증감시키기</h1>
+    <p>콘솔 패널을 열어 확인하세요!</p>
+
+    <!--- onclick="실행코드" --->
+    <button onclick="clearInterval(auto_1);">증가정지</button>
+    <button onclick="clearInterval(auto_2);">감소정지</button>
+
+    <br><br>
+
+    <!--- location객체 --->
+    <button onclick="lo_href();">네이버 사이트로 이동</button>
+    <button onclick="lo_reload();">새로고침</button>
+    <button onclick="lo_set('http://www.naver.com');">3초 후 이동</button>
+
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03_example</title>
+
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery-ui-1.8.23.custom.min.js"></script>
+
+    <script>
+
+        /**
+        animate() 메서드
+        
+        - 기본형
+        animate({
+            CSS설정
+        }, 시간(ms), 가속도easing, 콜백함수);
+
+        - 특징 : 트랜지션을 주지 않아도 css 변경사항을 애니메이션해주는 제이쿼리 효과 메서드
+        - 수치로 된 속성값에 적용 가능
+        **/
+       
+        /*
+        '바나나쇼' 예제 
+        
+        1) #container를 클릭하면
+        2) (span 태그를 포함하고 있는) li를 선택하여 글자 크기를 9px, 2초간 애니메이션
+        3) 0.5초간 사라지게 하고 
+        4) 사라진 상태에서 텍스트를 "내가 이러니 바나나 안 바나나!!"로 변경
+        5) 0.5초간 나타나게 하고
+        6) 글자크기를 72px, 글자색은 노란색으로 애니메이션 적용한 뒤
+        7) body를 바나나 배경으로 채우기
+        */
+
+        $(function(){
+
+            //1) #container를 클릭하면
+            $('#container').click(function (){
+
+                //2) (span 태그를 포함하고 있는) li를 선택하여 글자 크기를 9px, 2초간 애니메이션
+                $('li').has('span').animate({
+                    fontSize: '9px'
+                }, 2000)
+                
+                //3) 0.5초간 사라지게 하고 
+                .hide(500, function(){
+                    //4) 사라진 상태에서(->콜백함수!!) 텍스트를 "내가 이러니 바나나 안 바나나!!"로 변경
+                    $(this).text('내가 이러니 바나나 안 바나나!!');
+                })
+                
+                //5) 0.5초간 나타나게 하고
+                .show(500)
+                
+                //6) 글자크기를 72px, 글자색은 노란색으로 애니메이션 적용한 뒤
+                .animate({
+                    fontSize: '72px',
+                    color: 'yellow'
+                }, 1000, function (){
+
+                    //7) body를 바나나 배경으로 채우기
+                    $('body').css({
+                        backgroundImage: 'url(img/banana.jpg)'
+                    });
+                });
+
+
+
+
+            });
+
+        });
+
+
+    </script>
+</head>
+
+<body>
+
+    <div id="container">
+        <h2>Banana Show!!!</h2>
+
+        <ul class="nav1">
+            <li>apple</li>
+            <li class="banana"><span>banana</span></li>
+            <li>grape</li>
+        </ul>
+        <ul class="nav2">
+            <li>바나나우유</li>
+            <li>바나나케이크</li>
+            <li>바나나킥</li>
+        </ul>
+    </div>
+
+
+    <style>
+        /* #container {outline: 3px solid plum;} */
+    </style>
+
+</body>
+
+</html>

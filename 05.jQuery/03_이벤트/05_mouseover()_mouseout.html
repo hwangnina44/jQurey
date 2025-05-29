@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseover()_mouseout.html</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        mouseover- 선택한 요소에 마우스 포인터를 올릴 떄마다 이벤트 발생
+        mouseout - 선택한 요소에 마우스 포인터를 벗어날 떄마다 이벤트 발생
+        
+        **선택한 요소를 기준으로 하위(자식)요소에 연속적으로 이벤트 발생
+        >>이벤트 버블링 현상이 일어난다.        
+        */
+       $(document).ready(function(){
+        //on ()여러개 이벤트 등록하기
+        $('.btn1').on({
+            'mouseover' : function(){
+                $('.txt').css({
+                    backgroundColor : 'yellow'
+                });
+            },
+            'mouseout' : function(){
+                $('.txt').css({
+                    backgroundColor : 'transparent'
+                });
+            }
+        });
+       });
+    </script>
+</head>
+<body>
+    <button class="btn1"> mouser over/out</button>
+    <p class="txt">내용</p>
+</body>
+</html>

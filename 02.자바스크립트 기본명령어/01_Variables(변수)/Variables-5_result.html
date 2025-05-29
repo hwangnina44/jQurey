@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>Variables-5</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <h3>각각의 변수를 한줄로 나열하여 출력하세요.
+        firstName="John", lastName="Doe", age=35</h3>
+
+    <p id="demo" style="color: tomato;">Display the result here.</p>
+
+    <script>
+        // Create the variables here
+        // result : John Doe 35
+
+        var firstName = "John",
+            lastName = "Doe",
+            age = 35;
+
+        var target = document.getElementById("demo");
+
+        target.innerHTML = firstName + lastName + age;
+        
+        document.write(firstName + " " + lastName + " " + age);
+
+    </script>
+</body>
+
+</html>

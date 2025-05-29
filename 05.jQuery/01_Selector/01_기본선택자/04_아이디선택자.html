@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>아이디선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* html(); 메서드 
+        1. $(선택자).html();
+        -선택한 요소의 하위요소를 문자열로 반환
+
+        2. $(선택자).html('새 요소');
+        - 선택한 요소의 하위요소를 전부 제거하고 지정한 새요소를 삽입(생성)
+        *자바스크립트 innerHTML 속성과 유사
+        */
+        $(function () {
+
+            //좋아하는 계절을 클릭하면
+            //계절에 대한 설명으로 내용을 바꾸고 css 변경
+
+            $('#spring').click(function () {
+                    $(this).text('예쁜 꽃이 만발하는 봄이예요!').css({
+                        backgroundColor: 'plum',
+                        fontSize: '24px'
+                    });
+            });
+
+            $('#summer').click(function(){
+                $(this).text('여름이예요').css({
+                    backgroundColor: 'blue',
+                    fontSize: "24px"
+                });
+            });
+
+            $('#fall').click(function(){
+
+                //$(this).text('<p>단풍 구경 갈 시간~</p>');
+                $(this).html('<p>단풍 구경 갈 시간~</p>');
+            });
+
+            $('#winter').click(function(){
+
+                $(this).html('<img src="https://content.skyscnr.com/m/47a4a8938c94110e/original/3820145201700054k_Beautiful-Snowscape-of-Korea.jpg?resize=1800px:1800px&quality=100" alt="겨울풍경입니다." title="겨울풍경">');
+            });
+
+
+            //html 반환
+            var result = $('.msg').html();
+            console.log(result);//요소를 반환
+            console.log($('.msg').text());//텍스트만 반환
+        });
+    </script>
+
+    <style>
+        p {
+            color: red;
+            text-decoration: underline;
+        }
+        img{
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">한국에 4계절</h1>
+
+    <ul class="list">
+        <li id="spring">봄</li>
+        <li id="summer">여름</li>
+        <li id="fall">가을</li>
+        <li id="winter">겨울</li>
+    </ul>
+    <div class="msg">
+        <p>여름이 오면 수영장으로!</p>
+    </div>
+</body>
+
+</html>

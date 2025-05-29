@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_removwAtrr()</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        
+       removwAttr():선택한 요소에서 기존의 속성(제거)삭제 할 때 사용
+       *기본형
+       1) $('요소선택').removwAtrr('속성명');
+       2) $('요소선택').removwAtrr('속성명1 속성명2 속성명N');
+        */
+
+        $(function(){
+
+            $('button').click(function(){
+
+                //단일 속성 제거
+                $('p').removeAttr('style');
+
+                //여러개 속성제거
+                $('img').removeAttr('alt title width');
+                console.log($('img').attr('alt'));//undefined
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <h1>this is a heading</h1>
+
+    <p style="color: red;">this is a paragraph</p>
+    <p style="color: blue; font-weight: bold;" >this is a paragraph</p>
+
+
+    <div>
+        <img src="image/sea.jpg" alt="바다바다" title="여름엔 바다!!" width="1000">
+    </div>
+    <button>remove attributes</button>
+</body>
+</html>

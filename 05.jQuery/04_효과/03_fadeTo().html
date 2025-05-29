@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_fadeTo()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        fadeTo(소요시간,투명도,가속도,콜백함수)
+        :opacity 값을 변경하는 애니메이션 효과메서드
+        :투면도는 0~1 사이의 값을 사용
+
+        *opacity값이 0이 되어도 요소의 공간은 남아있음!
+        >>display:none이 되지 않았기 때문!
+
+        *display:none은 요소가 가지고 있는 공간까지 없는것처럼 사라짐
+        opacity 는 투명해져서 보이지 않을 뿐 공간을 가지고 있음!!
+        */
+
+        $(document).ready(function(){
+            //예제1
+            $('.box').on('click',function(){
+                $(this).fadeTo(500,0.3);
+            })
+
+            //예제2
+            /* var num= $('button').click().text(); */
+            $('button').click(function(){
+                var opa = $(this).text();
+                $('img').fadeTo(500,num);
+            });
+            
+            $('button').on('click',function(){
+                var num=$(this).text();
+                console.log(num);
+                $('img').fadeTo(500,num);
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- 예제! -->
+
+    <div class="box"> </div>
+    
+    <!-- 예제2 -->
+     <img src="image/home2.jpg" alt="">
+     <br>
+     <button>0</button>
+     <button>0.1</button>
+     <button>0.2</button>
+     <button>0.3</button>
+     <button>0.4</button>
+     <button>0.5</button>
+     <button>0.6</button>
+     <button>0.7</button>
+     <button>0.8</button>
+     <button>0.9</button>
+     <button>1</button>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            cursor: pointer;
+            margin-bottom:30px;
+        }
+    </style>
+
+</body>
+</html>

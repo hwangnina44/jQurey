@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <!-- 연결용으로 사용(script) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- jQuery 기능 사용(script) -->
+    <script>
+        /* 
+        1.제이쿼리 기본환경 만들기 = 라이브러리 연결하기
+        (1) cdn 연결 (Content Delovery Network)
+        (2) jQuery 라이브러리 파일 연결
+        
+        *CDN 이란?
+        >> 웹 콘텐츠(HTML 페이지, javascript 파일, 스타일 시트, 이미지, 동영상 등)을 다운로드할 때 자동으로 사용자와 가까운 서버에서 전송합으로써 웹 콘텐츠 전송 속도를 높임
+        >> 대용량 콘텐츠를 사용자에게 빠르고 안정적으로 전송할 수 있음
+
+        2. 제이쿼리 시작 코드블록 만들기
+        (1) jQuery(document).ready(function(){
+                    실행코드;
+                    });
+        (2) $(document).ready(function(){
+                    실행코드;
+                    });
+        (3)$(function(){
+                    실행코드;
+                    });
+            $ === jQuery
+            $() >>제이쿼리 함수를 호출했다!!
+
+        3. 제이쿼리 기본 구문
+        $(selector).action();
+
+        $ : 제이쿼리를 정의/접근하기 위해 약속된 기호
+        (selector) : HTML 요소를 선택하는 것(css 선택자를 기반으로 함)
+        action() : 선택된 요소가 수행할 명령( = 메서드)
+        */
+       
+        $(document).ready(function(){
+           // $('#color').css('color','red');
+           $('li span').css('color','blue');
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <ul>
+            <li>첫번째</li>
+            <li>두번째</li>
+            <li><span id="color">세번째(여기에 css 속성을 적용해 보세요.)</span></li>
+            <li>네번째</li>
+        </ul>
+    </div>
+</body>
+</html>

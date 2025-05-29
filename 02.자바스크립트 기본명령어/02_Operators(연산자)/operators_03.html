@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>operators_03</title>
+</head>
+
+<body>
+    <h4>변수 x,y를 활용하여 10+5의 값을 p요소에 나타내세요.</h4>
+
+    <p id="demo">Display the result here.</p>
+
+    <script>
+        /* 
+        var x = 10, y = 5, 
+        z = document.getElementById("demo");
+        z.innerHTML = x+y;
+         */
+        
+        //복합대입연산자//
+        var a = 10, b = 5, 
+        c = document.getElementById("demo");
+        c.innerHTML += a+b; 
+        //누적 된것!!
+        c.innerHTML = c.innerHTML + (a+b);
+
+
+
+
+    
+
+    </script>
+
+</body>
+
+</html>

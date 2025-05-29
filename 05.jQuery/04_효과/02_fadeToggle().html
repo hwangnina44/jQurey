@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_fadeToggle()</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /* 
+        fadeToggle(소요시간,가속도,콜백함수)
+        :display상태를 파악하여 fadein(),fadeOut()을 전환해 주는 메서드
+        */
+       $(function(){
+        $('#btn').click(function(){
+            $('img').fadeToggle(3000);
+        });
+        
+       });
+    </script>
+</head>
+<body>
+    <img src="image/home1.jpg" alt="">
+    <br>
+    <button id="btn">fadeToggle()</button>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>06_example</title>
+
+    <style>
+        body {
+            background-color: #000;
+
+        }
+        h1 {
+            color: #fff;
+            padding-left: 20px;
+        }
+        #box {
+            padding: 20px;
+            outline: 3px solid red;
+        }
+        #box::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #box img {
+            width: 200px;
+            border-radius: 10px;
+            display: block;
+            float: left;
+        }
+        #box img~img {
+            margin-left: 8px;
+        }
+    </style>
+    <script>
+
+        window.addEventListener("load", function (){
+            var imgBox= ''; 
+
+            for(var i=1; i<=8; i++) {
+            imgBox += '<img src="images/tving/dj_'+i+'.jpg" alt="좋거나 나쁜 동재 포스터" title="동재'+i+'">';
+            }
+
+            document.getElementById('box').innerHTML = imgBox;
+        });
+
+
+     /* var imgBox= ''; //이미재태그를 담는 변수
+
+     for(var i=1; i<=8; i++) {
+        imgBox += '<img src="images/tving/dj_'+i+'.jpg" alt="좋거나 나쁜 동재 포스터" title="동재'+i+'">';
+     }
+     //imgBox!!!!에    (이미지태그 +변수) 8번 반복한 누적(+=)데이터를 넣어! 
+
+     document.getElementById('box').innerHTML = imgBox; */
+    </script>
+</head>
+<body>
+    <h1>좋거나 나쁜 동재</h1>
+    <div id="box">
+      <!--   
+        <img src="images/tving/dj_1.jpg" alt="좋거나 나쁜 동재 포스터" title="동재1">
+        <img src="images/tving/dj_2.jpg" alt="좋거나 나쁜 동재 포스터" title="동재2">
+        <img src="images/tving/dj_3.jpg" alt="좋거나 나쁜 동재 포스터" title="동재3">
+        <img src="images/tving/dj_4.jpg" alt="좋거나 나쁜 동재 포스터" title="동재4">
+        <img src="images/tving/dj_5.jpg" alt="좋거나 나쁜 동재 포스터" title="동재5">
+        <img src="images/tving/dj_6.jpg" alt="좋거나 나쁜 동재 포스터" title="동재6">
+        <img src="images/tving/dj_7.jpg" alt="좋거나 나쁜 동재 포스터" title="동재7">
+        <img src="images/tving/dj_8.jpg" alt="좋거나 나쁜 동재 포스터" title="동재8"> -->
+    </div>
+    <script>
+        //이미지
+       /*  document.getElementById("box").innerHTML= '<img src="images/tving/dj_1.jpg" alt="좋거나 나쁜 동재 포스터" title="동재1">'; */
+        
+       //box에 8개 이미지가 반복해서 출력되도록 하기
+       
+
+       /* var i= 1;
+        var t = "dj_"+i+".jpg";
+        var h = '<img src="images/"'+ t+'alt="좋거나 나쁜 동재 포스터" title="동재1">';
+        document.write(h);
+        while(i<=9){
+            document.write(h);
+            i++;
+        } */
+    
+/*     for(var i =1;i<=8;i++) {
+        document.getElementById("box").innerHTML += '<img src="images/tving/dj_'+i+'.jpg" alt="좋거나 나쁜 동재 포스터" title="동재'+i+'">';
+    } */
+
+     /* var imgBox= ''; //이미재태그를 담는 변수
+
+     for(var i=1; i<=8; i++) {
+        imgBox += '<img src="images/tving/dj_'+i+'.jpg" alt="좋거나 나쁜 동재 포스터" title="동재'+i+'">';
+     }
+     //imgBox!!!!에    (이미지태그 +변수) 8번 반복한 누적(+=)데이터를 넣어! 
+
+     document.getElementById('box').innerHTML = imgBox; */
+    
+    
+    </script>
+
+</body>
+</html>

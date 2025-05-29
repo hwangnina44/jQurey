@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>05_slideToggle()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        slideToggle(소요시간,가속도,콜백함수)
+        :선택요소의 display 상태에 따라 slidup(), slideDown()번갈아 적용
+        */
+       $(document).ready(function(){
+        $('button').click(function(){
+           // $('img').slideToggle(1000,'linear');
+            $('.img-box').slideToggle(1000,'linear');
+        });
+       });
+    </script>
+</head>
+<body>
+    <div class="img-box"><img src="image/home3.jpg" alt=""></div>
+    <button>slideToggle</button>
+    <style>
+        img{
+            width: 300px;
+            /* 이미지 width값이 설정되지 않을 경우,
+            이미지 height값 변화에 따라 width값이 자동으로 변경되므로 왼쪽 상단으로 이미지가 사라지거나 나타남
+            이미지 width 값을 고정으로 설정하여 heigth 변경 애니메이션 확인 */
+        }
+        .img-box {
+            outline: 1px solid red;
+            height: 200px;
+            overflow: hidden;
+        }
+    </style>
+</body>
+</html>

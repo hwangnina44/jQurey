@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02_태그선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        $(function () {
+            //css()는 인라인스타일로 적용! 우선순위가 가장 높음!
+            $('h1').css('cursor', 'pointer');
+
+            //h1태그를 클릭하면 li색을 변경하시오!
+            $('h1').click(function () {
+                $('li').css({
+                    backgroundColor :'yellow',
+                    color:'red',
+                    fontSize:'26px'
+                });
+            });
+        });
+
+
+        /*
+        click()이벤트 메서드
+        - 기본형 : $(선탁자/인벤트 대상).click(실행코드/함수명);
+        >> 선택요소를 클릭하면 실행코드(또는 함수)실행! >>핸들러 실행!
+        >>선택요소를'클릭'했다 ->이벤트가 발생!     
+        */
+
+    </script>
+</head>
+
+<body>
+
+    <h1 class="title">한국에 4계절</h1>
+
+    <ul class="list">
+        <li id="spring">봄</li>
+        <li id="summer">여름</li>
+        <li id="fall">가을</li>
+        <li id="winter">겨울</li>
+    </ul>
+
+</body>
+
+</html>

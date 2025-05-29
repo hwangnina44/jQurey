@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06_example_fo</title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        h1 {
+            color: #fff;
+            padding-left: 20px;
+        }
+
+        #box {
+            padding: 20px;
+            outline: 3px solid lime;
+        }
+
+        #box::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #box img {
+            width: 200px;
+            border-radius: 10px;
+            display: block;
+            float: left;
+        }
+
+        #box img~img {
+            margin-left: 8px;
+        }
+    </style>
+
+    <script>
+
+        window.addEventListener('load', function () {
+
+            var imgBox = '';  //이미지 태그를 담는 변수 
+
+            for (var i = 1; i <= 8; i++) {
+                imgBox += '<img src="images/tving/dj_' + i + '.jpg" alt="좋거나 나쁜 동재 포스터" title="동재' + i + '">';
+            }
+
+            document.getElementById('box').innerHTML = imgBox;
+
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <h1>좋거나 나쁜 동재</h1>
+
+    <div id="box">
+        <!--  
+        <img src="images/tving/dj_1.jpg" alt="좋거나 나쁜 동재 포스터" title="동재1">
+        <img src="images/tving/dj_2.jpg" alt="좋거나 나쁜 동재 포스터" title="동재2">
+        <img src="images/tving/dj_3.jpg" alt="좋거나 나쁜 동재 포스터" title="동재3">
+        <img src="images/tving/dj_4.jpg" alt="좋거나 나쁜 동재 포스터" title="동재4">
+        <img src="images/tving/dj_5.jpg" alt="좋거나 나쁜 동재 포스터" title="동재5">
+        <img src="images/tving/dj_6.jpg" alt="좋거나 나쁜 동재 포스터" title="동재6">
+        <img src="images/tving/dj_7.jpg" alt="좋거나 나쁜 동재 포스터" title="동재7">
+        <img src="images/tving/dj_8.jpg" alt="좋거나 나쁜 동재 포스터" title="동재8"> 
+        -->
+    </div>
+
+    <script>
+
+        //#box에 이미지가 출력되도록 하기 
+        /* document.getElementById('box').innerHTML = '<img src="images/tving/dj_1.jpg" alt="좋거나 나쁜 동재 포스터" title="동재1">'; */
+
+        //#box에 8개 이미지가 반복해서 출력되도록 하기 
+
+        /* for (var i=1; i<=8; i++) {
+            document.getElementById('box').innerHTML += '<img src="images/tving/dj_' + i + '.jpg" alt="좋거나 나쁜 동재 포스터" title="동재' + i + '">';
+        } */
+
+        /* var imgBox = '';  //이미지 태그를 담는 변수
+
+        for (var i=1; i<=8; i++) {
+            imgBox += '<img src="images/tving/dj_' + i + '.jpg" alt="좋거나 나쁜 동재 포스터" title="동재' + i + '">';
+        }
+
+        document.getElementById('box').innerHTML = imgBox; */
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

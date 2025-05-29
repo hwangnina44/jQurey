@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>05_scrollLeft()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        scrollLeft() : 브자우저의 스크롤바가 수평으로(x축) 이동 한 위치값을 반환받거나 변경할 떄 사용
+
+        $('선택한요소').scerollLeft();
+        $('선택한요소').scerollLeft(값);
+        
+        
+        */
+
+        $(document).ready(function(){
+            $('button').click(function(){
+                //alert($('.box').scrollLeft());
+                $('.box').scrollLeft(200);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        세상에서 가장 긴 단어는 :
+        dkfkdlalfpopoimuuioqfuajflkdalkdvndlknfglkandfladjkfjdljfkldsjflksdjfkldsjfkldsjfkldsjfldsjflkajfkldsjflkajflkajfkldsjflkqruieuiopqewrpoqwuroqrowuroruioejlkzcxvnlznvznklfdjlkadjfk
+    </div>
+
+    <button>scrollLeft()</button>
+
+    <style>
+        div.box{
+            width: 120px;
+            height: 130px;
+            border: 1px solid red;
+            overflow: auto;
+        }
+    </style>
+</body>
+</html>

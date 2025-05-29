@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>switch문</title>
+
+
+
+    <script>
+       /* 
+       2.선택문
+       -일치하는 '경우의 값'이 있을 때만 특정 코드 실행
+
+       (1)switch
+       -변수에 저장된 값이 switch문에 잇는 경우의 값을 검사,
+       변수와 경우의 값에서 일치하는 값이 있을 때 그에 해당하는 코드 실행
+       
+       /////////기본형//////////////////////////////////////////////////
+       var 변수명 = 초기값;
+       switch(변수) {
+            case 값1 : 코드 1;
+            break;
+            case 값2 : 코드 2;
+            break;
+            case 값3 : 코드 3;
+            break;
+
+            default : 코드 ;
+       }
+       */
+
+       //switch 예제
+      
+      
+ /*  var site = prompt("네이버,다음,네이트,구글 중 즐겨 사용하는 포털 검색 사이트는?");
+
+       var url= "";//목적지(이동할 경로)를 담을 변수!
+
+       switch(site) {
+        case "네이버" : url = "www.naver.com";
+        break;
+        case "다음" : url = "www.daum.net";
+        break;
+        case "네이트" : url = "www.nate.com";
+        break;
+        case "google" : url = "www.google.com"
+        break;
+        default : alert("보기중에 없는 사이트입니다.")
+       }
+       
+       console.log(url);
+       console.log(Boolean(url));
+
+       if(url) {
+        location.href= "http://"+ url;
+        //이동해 = 입력받은 url 데이터로 
+       }
+       ///한번에 작성하는 법
+       /// if(url) lacation.href ="http://"+ url; */
+
+
+       //예제 2
+       /* 
+       사용자가 입력하는 지역의 지역번호를 알림창으로 실행되도록 하시오.
+       (서울 02, 경기 031, 대전 042, 부산 051, 제주 064)
+       해당하는 지역이 없을 경우 '등록되지 않은 지역입니다.' 알림창을 실행하시오
+       */
+
+       
+       
+/*        var num = prompt("지역번호를 입력해주세요");
+
+       switch (num) {
+        case "02" : alert("서울") ;
+        break;
+        case "031" : alert("경기") ;
+        break;
+        case "042" : alert("대전") ;
+        break;
+        case "051" : alert("부산") ;
+        break;
+        case "064" : alert("제주") ;
+        break;
+        default : alert("등록되지 않은 지역입니다.");
+       }
+ */
+       var local = prompt("지역번호를 입력해주세요");
+       var localnum= ; //지역을 담을 변수
+
+        switch (local) {
+        case "서울" : lacalnum = "02" ;
+        break;
+        case "서울" : lacalnum = "031" ;
+        break;
+        case "대전" : lacalnum = "042" ;
+        default : alert("등록되지 않은 지역입니다.");
+       }
+       if(localnum) alert(localnum);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

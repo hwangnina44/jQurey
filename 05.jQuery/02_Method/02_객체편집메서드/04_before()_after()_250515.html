@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_before()_after()</title>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /* 
+        1. before(), insertBefore()
+        : 선택한 요소의 이전 위치에 새 요소를 생성
+
+        $('기준요소').before('새 요소');
+        $('새 요소').insertBefore('기준요소');
+
+        2. after(), insertAfter()
+        : 선택한 요소의 다음 위치에 새 요소를 생성
+
+        $('기준요소').after('새 요소');
+        $('새 요소').insertAfter('기준요소');
+
+        //요소가 추가되면 인덱스 번호가 바뀌게 된다!!!!
+        
+        */
+
+        $(document).ready(function(){
+
+            //before
+            //$('#wrap p').before('<p>나는 before!!!!</p>'); //모든 p태그 이전 요소로 생성!!!
+
+            $('#wrap p').eq(1).before('<p>나도 before!!!!</p>');
+            $('#wrap p').eq(1).css('background-color','yellow');
+
+            $('<p>나는 insertBefore!!!</p>').insertBefore('#wrap p:eq(0)');
+
+
+            //after
+            $('#wrap p').eq(2).after('<p>너는 after!!!!</p>');
+            //$('<p>너는 insertAfter!!!!!</p>').insertAfter('#wrap p:eq(2)');
+            $('<p>너는 insertAfter!!!!!</p>').insertAfter($('#wrap p').eq(2));
+
+
+        });
+
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+        <p class="red">내용1</p>
+        <p class="red">내용2</p>
+        <p class="red">내용3</p>
+    </div>
+
+    <style>
+        #wrap {
+            outline: 2px solid skyblue;
+            padding: 10px;
+        }
+        p.red {
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+    
+</body>
+</html>

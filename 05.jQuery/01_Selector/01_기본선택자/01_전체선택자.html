@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>01_전체선택자</title>
+    <!-- 1. 라이브러리 연결 하기  -->
+    <script src="jquery-1.7.2.min.js"></script>
+    <!-- 2. 제이쿼리 함수 호출 -->
+    <script>
+        /* 
+        객체.메서드();
+        객체.속성();
+        document.method(); //자바스크립트 형식
+        $(document)//제이쿼리 
+
+        $(선택자).메서드();
+        $(선택자).속성;
+        */
+       
+       
+        $(document).ready(function(){
+        //문서가 준비되면 
+        //function 코드를 실행해 주세요.
+        //$('*').css('border','1px solid blue');
+        $('*').css({
+            color:'red',
+            backgroundColor:'yellow'
+        });
+       });
+
+       
+       
+       /* 
+       css() 메세드
+
+       1)하나의 값을 바꿀때
+       $(선택자).css('속성명','값');
+    
+       2)2개 이상 (여러개)의 값을 바꿀 때
+       $(선택자).css({
+                속성명1 : '값',
+                속성명2 : '값',
+                속성명n : '값'
+       });
+
+       3)css속성값 반환
+       $('선택자').css('속성명');
+       >>선택한 요소의 css 속성값 반환!!
+
+       *css 속성명 쓰는 2가지 방법
+       1)문자형 : 따옴표 안에 css의 속성명을 css와 동일하게 작성
+       ex)'background-color'
+
+       2)변수형 : 따옴표를 사용하지 않고 변수처럼 표현,2단어 이상일때 - 하이픈 뺴고 첫 글자를 대문자로 변경 (중간에 뛰어쓰기 없음)
+       ex)background-color -> backgroundColor
+
+       */
+    </script>
+</head>
+<body>
+    
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3>전체선택자</h3>
+
+    <ul>
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+        <li>리스트4</li>
+    </ul>
+</body>
+</html>
